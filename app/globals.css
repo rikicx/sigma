@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Cores ---- */
+  --color-paper: #f5f6f6;
+  --color-paper-pure: #ffffff;
+  --color-paper-dim: #eceeee;
+
+  --color-ink: #08090a;
+  --color-ink-900: #0c0e10;
+  --color-ink-800: #14181a;
+  --color-ink-700: #1d2225;
+  --color-ink-600: #2b3236;
+
+  --color-graphite: #474f54;
+  --color-mute: #6d757a;
+  --color-mute-soft: #9aa1a5;
+
+  --color-line: #e1e4e5;
+  --color-line-strong: #cfd3d5;
+
+  --color-accent: #0c93a4;
+  --color-accent-deep: #077483;
+  --color-accent-bright: #22d3e4;
+
+  /* ---- Tipografia ---- */
+  --font-sans: var(--font-display), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-technical), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+
+  /* ---- Animações ---- */
+  --animate-drift: drift 26s ease-in-out infinite;
+  --animate-pulse-node: pulse-node 4s ease-in-out infinite;
+  --animate-dash: dash 9s linear infinite;
+  --animate-scan: scan 7s linear infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes pulse-node {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1100%);
+    opacity: 0;
+  }
+}
+
+/* ---------- Base ---------- */
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Utilitários de composição ---------- */
+@utility display-xl {
+  font-size: clamp(2.45rem, 5.6vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.038em;
+  font-weight: 500;
+}
+
+@utility display-lg {
+  font-size: clamp(2.1rem, 4.4vw, 3.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+  font-weight: 500;
+}
+
+@utility display-md {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.024em;
+  font-weight: 500;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Malha técnica: base visual do site inteiro */
+@utility grid-technical {
+  background-image: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-ink) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-ink) 7%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 72px 72px;
+}
+
+@utility grid-technical-dark {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+@utility mask-fade-b {
+  mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+}
+
+@utility mask-fade-radial {
+  mask-image: radial-gradient(ellipse 80% 65% at 50% 40%, #000 30%, transparent 78%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 65% at 50% 40%,
+    #000 30%,
+    transparent 78%
+  );
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ---------- Linha animada de conexão ---------- */
+.conn-line {
+  stroke-dasharray: 6 10;
+  animation: var(--animate-dash);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
