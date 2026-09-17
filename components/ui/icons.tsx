@@ -21,7 +21,7 @@ export const icons = {
       <circle cx="19" cy="18" r="1.8" fill="currentColor" stroke="none" />
     </svg>
   ),
-  cloud: (props: IconProps) => (
+  office: (props: IconProps) => (
     <svg {...base} {...props}>
       <rect x="4" y="5" width="11" height="9" />
       <rect x="17" y="5" width="11" height="9" strokeOpacity="0.4" />
@@ -45,14 +45,6 @@ export const icons = {
       <rect x="4" y="22" width="24" height="7" strokeOpacity="0.4" />
       <path d="M8 7.5h1M8 16.5h1M8 25.5h1" />
       <path d="M22 7.5h3M22 16.5h3" strokeOpacity="0.45" />
-    </svg>
-  ),
-  volume: (props: IconProps) => (
-    <svg {...base} {...props}>
-      <path d="M6 27V13l10-6 10 6v14" />
-      <path d="M6 27h20" strokeOpacity="0.4" />
-      <path d="M12 27v-8h8v8" />
-      <path d="M16 7v6" strokeOpacity="0.4" />
     </svg>
   ),
   support: (props: IconProps) => (

@@ -87,7 +87,7 @@ export type Solution = {
   title: string;
   text: string;
   points: readonly string[];
-  icon: "advisory" | "cloud" | "device" | "server" | "volume" | "support";
+  icon: "advisory" | "office" | "device" | "server" | "support";
 };
 
 export const solutions: readonly Solution[] = [
@@ -99,18 +99,18 @@ export const solutions: readonly Solution[] = [
     icon: "advisory",
   },
   {
-    id: "microsoft-365",
-    title: "Microsoft 365 / Office",
-    text: "Ferramentas de produtividade, colaboração, e-mail corporativo e gestão de usuários.",
-    points: ["E-mail corporativo", "Colaboração e arquivos", "Gestão de identidades"],
-    icon: "cloud",
-  },
-  {
-    id: "windows-pro",
+    id: "windows",
     title: "Windows e Windows Pro",
-    text: "Soluções para empresas que precisam de segurança, mobilidade e gestão eficiente dos dispositivos.",
+    text: "Licenciamento do sistema operacional para empresas que precisam de segurança, mobilidade e gestão eficiente dos dispositivos.",
     points: ["Parque padronizado", "Segurança de endpoint", "Mobilidade corporativa"],
     icon: "device",
+  },
+  {
+    id: "office",
+    title: "Office",
+    text: "Pacote de produtividade instalado no computador — Word, Excel, PowerPoint e Outlook — licenciado por dispositivo.",
+    points: ["Licença por dispositivo", "Produtividade no desktop", "Atualização de versão"],
+    icon: "office",
   },
   {
     id: "windows-server",
@@ -118,13 +118,6 @@ export const solutions: readonly Solution[] = [
     text: "Estruturação de ambientes corporativos, servidores, virtualização e necessidades de datacenter.",
     points: ["CALs e métricas", "Virtualização", "Ambientes híbridos"],
     icon: "server",
-  },
-  {
-    id: "licenciamento-volume",
-    title: "Licenciamento por Volume",
-    text: "Apoio para empresas que precisam contratar, renovar ou revisar contratos de software.",
-    points: ["Contratação", "Renovação", "Revisão de contratos"],
-    icon: "volume",
   },
   {
     id: "suporte-tecnico",
@@ -187,7 +180,7 @@ export const differentials = [
   },
   {
     title: "Conhecimento em soluções Microsoft",
-    text: "Microsoft 365, Windows, Windows Server e licenciamento por volume dentro de um mesmo raciocínio.",
+    text: "Windows, Office e Windows Server dentro de um mesmo raciocínio de licenciamento.",
   },
   {
     title: "Orientação para empresas em crescimento",

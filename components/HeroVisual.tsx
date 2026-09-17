@@ -171,8 +171,8 @@ export function HeroVisual() {
 
       {/* módulos flutuantes — rótulos técnicos, sem números inventados */}
       <FloatingModule
-        label="Microsoft 365"
-        meta="Produtividade"
+        label="Windows"
+        meta="Sistema operacional"
         className="left-[-4%] top-[16%]"
         depth={26}
       />
@@ -183,8 +183,8 @@ export function HeroVisual() {
         depth={-32}
       />
       <FloatingModule
-        label="Licenciamento por volume"
-        meta="Contratos"
+        label="Office"
+        meta="Produtividade"
         className="bottom-[9%] left-[4%]"
         depth={18}
       />
