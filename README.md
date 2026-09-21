@@ -17,8 +17,35 @@ npm run build   # build de produção
 ## Deploy na Vercel
 
 O projeto é 100% estático (prerender). Basta importar o repositório na Vercel —
-nenhuma variável de ambiente é necessária. Antes do go-live, ajuste `site.url`
-em `lib/site.ts` para o domínio definitivo (usado em canonical, OG e sitemap).
+nenhuma variável de ambiente é necessária. `site.url` em `lib/site.ts` define o
+domínio canônico (canonical, OG, sitemap e JSON-LD).
+
+## Domínio e redirecionamentos 301
+
+As URLs do site antigo são redirecionadas em `next.config.mjs`, com 301 de
+salto único, com e sem barra final:
+
+| URL antiga | Destino |
+| --- | --- |
+| `/home` | `/` |
+| `/servicos/` | `/#solucoes` |
+| `/nosso-diferencial/` | `/#diferenciais` |
+| `/contato/` | `/#contato` |
+
+`skipTrailingSlashRedirect` está ligado para evitar a cadeia 308 → 301 do Next.
+
+**Virada de DNS de `sigmario.com.br`** (DNS no Registro.br; o domínio não tem MX):
+
+1. Na Vercel, adicione `sigmario.com.br` (primário) e `www.sigmario.com.br`
+   (redirect para o primário, status 301).
+2. No Registro.br: registro `A` de `@` e `CNAME` de `www` com os valores que a
+   Vercel mostrar na tela de domínios.
+3. Não altere nada em `sigmario.net`: é lá que está o e-mail (`adm@sigmario.net`).
+4. No Google Search Console, reenvie `https://sigmario.com.br/sitemap.xml`.
+
+Se a marca ganhar um domínio novo, `sigmario.com.br` continua no mesmo projeto
+da Vercel redirecionando para ele, e a mudança é informada no Search Console
+com a ferramenta "Mudança de endereço".
 
 ## Onde trocar as informações
 
@@ -31,7 +58,7 @@ Os pontos que precisam de validação do cliente estão marcados com `⚠️ TRO
 | Telefone | `(21) 3942-8787` |
 | WhatsApp | mesmo número do telefone — **confirmar número comercial** |
 | Endereço | Rua México, 31 — Centro, Rio de Janeiro/RJ, CEP 20031-144 |
-| Domínio | `https://www.sigmabrasil.com.br` (placeholder) |
+| Domínio | `https://sigmario.com.br` — ver seção "Domínio e redirecionamentos 301" |
 | Logo | **ainda não aplicado** — ver `components/ui/Logo.tsx` |
 
 ### Aplicar o logo

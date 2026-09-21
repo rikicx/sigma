@@ -9,8 +9,11 @@
 export const site = {
   name: "Sigma Brasil",
   legalName: "Sigma Brasil — Consultoria e Soluções em Tecnologia",
-  // ⚠️ TROCAR AQUI: domínio definitivo antes do deploy na Vercel.
-  url: "https://www.sigmabrasil.com.br",
+  // ⚠️ Domínio canônico (canonical, Open Graph, sitemap, JSON-LD).
+  // sigmario.com.br é o único domínio confirmado do cliente. NÃO usar
+  // sigmabrasil.com.br: pertence a outra empresa (produtos para laboratório).
+  // Se a marca ganhar domínio próprio, troque aqui e veja o README (301).
+  url: "https://sigmario.com.br",
   description:
     "Consultoria em licenciamento de software, soluções Microsoft, Windows, Office, Windows Server e suporte corporativo para empresas.",
 } as const;
