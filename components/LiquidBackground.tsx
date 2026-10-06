@@ -309,12 +309,23 @@ export function LiquidBackground() {
   }, []);
 
   /**
-   * O metal só aparece dentro do contorno do país: a máscara é o mapa, com uma
-   * borda suavizada para a silhueta não ficar recortada como adesivo.
+   * O metal só aparece dentro do contorno do país.
+   *
+   * Dois cuidados que o Safari exige e o Chrome perdoa:
+   *   1. o SVG da máscara precisa de width/height explícitos — só o viewBox
+   *      faz o Safari calcular tamanho zero e a máscara some;
+   *   2. nada de filtro SVG dentro da máscara. A borda é suavizada com
+   *      contornos concêntricos de opacidade decrescente, que é equivalente
+   *      visualmente e funciona em todo lugar.
    */
-  const mask = `url("data:image/svg+xml,${encodeURIComponent(
-    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'><defs><filter id='s' x='-10%' y='-10%' width='120%' height='120%'><feGaussianBlur stdDeviation='9'/></filter></defs><path d='${BRAZIL_PATH}' fill='white' filter='url(%23s)'/></svg>`,
-  )}")`;
+  const maskSvg = [
+    `<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='1000' viewBox='0 0 1000 1000'>`,
+    `<path d='${BRAZIL_PATH}' fill='white' stroke='white' stroke-opacity='0.18' stroke-width='34' stroke-linejoin='round'/>`,
+    `<path d='${BRAZIL_PATH}' fill='white' stroke='white' stroke-opacity='0.4' stroke-width='18' stroke-linejoin='round'/>`,
+    `<path d='${BRAZIL_PATH}' fill='white' stroke='white' stroke-opacity='0.7' stroke-width='8' stroke-linejoin='round'/>`,
+    `</svg>`,
+  ].join("");
+  const mask = `url("data:image/svg+xml,${encodeURIComponent(maskSvg)}")`;
 
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-paper">
@@ -324,6 +335,11 @@ export function LiquidBackground() {
            em tela larga (limitado pela altura) quanto estreita (pela largura) */
         className="absolute inset-[4%] md:inset-[6%]"
         style={{
+          // o Safari perde máscaras sobre canvas acelerado quando a camada não
+          // está isolada; o transform do parallax já promove a camada, e o
+          // isolation garante o contexto próprio
+          isolation: "isolate",
+          willChange: "transform",
           maskImage: mask,
           WebkitMaskImage: mask,
           maskRepeat: "no-repeat",
