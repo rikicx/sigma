@@ -25,28 +25,19 @@ export function DifferentialsSection() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           <Reveal className="lg:col-span-1">
-            <article className="relative flex h-full flex-col justify-between overflow-hidden bg-ink p-9 lg:p-10">
-              <div
-                className="grid-technical-dark absolute inset-0 opacity-80"
-                aria-hidden="true"
-              />
+            <article className="relative flex h-full flex-col justify-between overflow-hidden border border-line bg-paper-pure p-9 lg:p-10">
               <div className="relative">
-                <span className="eyebrow text-accent-bright">Princípio</span>
-                <h3 className="display-md mt-6 text-balance text-white">
-                  {featured.title}
-                </h3>
-                <p className="mt-5 text-[15px] leading-relaxed text-white/60">
+                <span className="eyebrow text-accent">Princípio</span>
+                <h3 className="display-md mt-6 text-balance text-ink">{featured.title}</h3>
+                <p className="mt-5 text-[15px] leading-relaxed text-graphite">
                   {featured.text}
                 </p>
               </div>
-              <div
-                className="relative mt-12 flex items-end gap-1"
-                aria-hidden="true"
-              >
+              <div className="relative mt-12 flex items-end gap-1" aria-hidden="true">
                 {[28, 44, 60, 76, 92].map((height, i) => (
                   <span
                     key={height}
-                    className={`w-6 ${i === 4 ? "bg-accent-bright" : "bg-white/10"}`}
+                    className={`w-6 ${i === 4 ? "bg-accent" : "bg-line-strong"}`}
                     style={{ height }}
                   />
                 ))}

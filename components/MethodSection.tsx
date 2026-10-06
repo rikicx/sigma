@@ -48,7 +48,6 @@ export function MethodSection() {
       className="relative scroll-mt-20 overflow-hidden bg-ink py-24 md:py-32"
       aria-labelledby="metodo-titulo"
     >
-      <div className="grid-technical-dark mask-fade-b absolute inset-0" aria-hidden="true" />
       <div
         className="absolute right-[-10%] top-1/3 h-[420px] w-[420px] rounded-full bg-accent/10 blur-[150px]"
         aria-hidden="true"

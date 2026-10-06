@@ -13,6 +13,20 @@ const base = {
 
 /** Ícones abstratos: geometria técnica, sem metáfora óbvia de "TI". */
 export const icons = {
+  windows: (props: IconProps) => (
+    <svg {...base} {...props}>
+      <rect x="4" y="5" width="11" height="10" />
+      <rect x="17" y="5" width="11" height="10" strokeOpacity="0.45" />
+      <rect x="4" y="17" width="11" height="10" strokeOpacity="0.45" />
+      <rect x="17" y="17" width="11" height="10" />
+    </svg>
+  ),
+  shield: (props: IconProps) => (
+    <svg {...base} {...props}>
+      <path d="M16 3l11 4v9c0 6.4-4.6 10.4-11 13C9.6 26.4 5 22.4 5 16V7l11-4Z" />
+      <path d="M11 16l3.5 3.5L22 12" strokeOpacity="0.55" />
+    </svg>
+  ),
   advisory: (props: IconProps) => (
     <svg {...base} {...props}>
       <path d="M4 26V6M4 26h24" strokeOpacity="0.35" />

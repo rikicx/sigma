@@ -1,31 +1,23 @@
-import { Header } from "@/components/Header";
+import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
-import { ProblemSection } from "@/components/ProblemSection";
-import { SolutionsSection } from "@/components/SolutionsSection";
-import { MethodSection } from "@/components/MethodSection";
-import { DifferentialsSection } from "@/components/DifferentialsSection";
-import { ComparisonSection } from "@/components/ComparisonSection";
-import { AboutSection } from "@/components/AboutSection";
+import { OffersSection } from "@/components/OffersSection";
+import { ConsultiveStrip } from "@/components/ConsultiveStrip";
 import { FinalCTA } from "@/components/FinalCTA";
-import { Footer } from "@/components/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+
+export const metadata: Metadata = {
+  title: "Sigma Brasil | Licenças Microsoft, Antivírus e Consultoria",
+  description:
+    "Venda de licenças Microsoft e antivírus corporativo com consultoria em licenciamento: Windows, Windows Server, Office e suporte para empresas.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main id="conteudo">
-        <Hero />
-        <ProblemSection />
-        <SolutionsSection />
-        <MethodSection />
-        <DifferentialsSection />
-        <ComparisonSection />
-        <AboutSection />
-        <FinalCTA />
-      </main>
-      <Footer />
-      <WhatsAppButton />
+      <Hero />
+      <OffersSection />
+      <ConsultiveStrip />
+      <FinalCTA />
     </>
   );
 }

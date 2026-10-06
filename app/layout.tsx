@@ -1,14 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { LiquidBackground } from "@/components/LiquidBackground";
 import { site, contact } from "@/lib/site";
 
-const display = Geist({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-display",
-});
-
+const display = Geist({ subsets: ["latin"], display: "swap", variable: "--font-display" });
 const technical = Geist_Mono({
   subsets: ["latin"],
   display: "swap",
@@ -19,22 +18,11 @@ const technical = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Sigma Brasil | Consultoria em Licenciamento e Soluções Microsoft",
+    default: "Sigma Brasil | Licenças Microsoft, Antivírus e Consultoria",
     template: "%s | Sigma Brasil",
   },
   description: site.description,
-  keywords: [
-    "consultoria em licenciamento",
-    "licenciamento Microsoft",
-    "soluções Microsoft para empresas",
-    "Windows Server",
-    "licenciamento Windows",
-    "software corporativo",
-    "tecnologia para empresas",
-    "suporte corporativo",
-    "Windows Pro para empresas",
-    "Office para empresas",
-  ],
+  applicationName: site.name,
   authors: [{ name: site.name }],
   creator: site.name,
   publisher: site.name,
@@ -44,12 +32,12 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: site.url,
     siteName: site.name,
-    title: "Sigma Brasil | Consultoria em Licenciamento e Soluções Microsoft",
+    title: "Sigma Brasil | Licenças Microsoft, Antivírus e Consultoria",
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sigma Brasil | Consultoria em Licenciamento e Soluções Microsoft",
+    title: "Sigma Brasil | Licenças Microsoft, Antivírus e Consultoria",
     description: site.description,
   },
   robots: {
@@ -65,14 +53,16 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-const jsonLd = {
+/** Schema único da organização; cada página interna adiciona seu BreadcrumbList. */
+const organizationLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": `${site.url}/#organizacao`,
   name: site.name,
   legalName: site.legalName,
   description: site.description,
   url: site.url,
-  email: contact.email,
+  email: contact.emailVendas,
   telephone: contact.phone,
   areaServed: "BR",
   address: {
@@ -84,12 +74,12 @@ const jsonLd = {
     addressCountry: contact.address.country,
   },
   knowsAbout: [
-    "Consultoria em licenciamento de software",
-    "Licenciamento Microsoft",
+    "Licenças Microsoft",
     "Windows e Windows Pro",
     "Windows Server",
     "Office",
-    "Suporte corporativo",
+    "Antivírus corporativo",
+    "Consultoria em licenciamento de software",
   ],
 };
 
@@ -98,6 +88,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={`${display.variable} ${technical.variable}`}>
+      <head>
+        {/* marca que o JS está ativo: sem isso o conteúdo nasce visível, sem depender de hidratação */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+      </head>
       <body className="antialiased">
         <a
           href="#conteudo"
@@ -105,10 +103,14 @@ export default function RootLayout({
         >
           Pular para o conteúdo
         </a>
-        {children}
+        <LiquidBackground />
+        <Header />
+        <main id="conteudo">{children}</main>
+        <Footer />
+        <WhatsAppButton />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
         />
       </body>
     </html>

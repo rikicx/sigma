@@ -8,10 +8,9 @@ export function ComparisonSection() {
   return (
     <section
       id="comparativo"
-      className="relative bg-paper-dim/60 py-24 md:py-32"
+      className="relative border-t border-line py-24 md:py-32"
       aria-labelledby="comparativo-titulo"
     >
-      <div className="grid-technical mask-fade-b absolute inset-0 opacity-70" aria-hidden="true" />
       <Container className="relative">
         <SectionHeading
           align="center"
@@ -48,10 +47,6 @@ export function ComparisonSection() {
 
           <Reveal delay={120}>
             <article className="relative h-full overflow-hidden bg-ink p-8 md:p-10">
-              <div
-                className="grid-technical-dark absolute inset-0 opacity-80"
-                aria-hidden="true"
-              />
               <div
                 className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-accent/20 blur-[90px]"
                 aria-hidden="true"
