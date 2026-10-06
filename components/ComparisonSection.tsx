@@ -56,12 +56,12 @@ export function ComparisonSection() {
                   <h3 className="text-[18px] font-medium tracking-[-0.02em] text-white">
                     Comprar com a Sigma Brasil
                   </h3>
-                  <span className="eyebrow text-accent-bright">Cenário B</span>
+                  <span className="eyebrow text-brand-red-bright">Cenário B</span>
                 </header>
                 <ul className="mt-8 space-y-5">
                   {comparison.with.map((item) => (
                     <li key={item} className="flex items-start gap-4">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center bg-accent-bright text-ink">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center bg-brand-red text-white">
                         <CheckMark className="h-3 w-3" />
                       </span>
                       <span className="text-[15px] leading-relaxed text-white/85">

@@ -72,7 +72,7 @@ export function MethodSection() {
             aria-hidden="true"
           >
             <div
-              className="h-px bg-linear-to-r from-accent-bright to-accent transition-[width] duration-300 ease-out"
+              className="h-px bg-linear-to-r from-brand-red-bright to-accent-bright transition-[width] duration-300 ease-out"
               style={{ width: `${progress * 100}%` }}
             />
           </div>
@@ -82,7 +82,7 @@ export function MethodSection() {
             aria-hidden="true"
           >
             <div
-              className="w-px bg-linear-to-b from-accent-bright to-accent transition-[height] duration-300 ease-out"
+              className="w-px bg-linear-to-b from-brand-red-bright to-accent-bright transition-[height] duration-300 ease-out"
               style={{ height: `${progress * 100}%` }}
             />
           </div>
@@ -95,7 +95,7 @@ export function MethodSection() {
                   <Reveal delay={index * 80}>
                     <span
                       className={`absolute left-[8px] top-[8px] flex h-3.5 w-3.5 items-center justify-center transition-colors duration-500 lg:left-0 ${
-                        active ? "bg-accent-bright" : "bg-ink-600"
+                        active ? "bg-brand-red-bright" : "bg-ink-600"
                       }`}
                       aria-hidden="true"
                     >

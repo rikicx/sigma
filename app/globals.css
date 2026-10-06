@@ -1,27 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- Cores ---- */
-  --color-paper: #ffffff;
-  --color-paper-pure: #ffffff;
-  --color-paper-dim: #f5f6f7;
+  /* ---- Cores ----
+     Paleta derivada da arte institucional: azul-marinho e vermelho da marca,
+     sobre off-white. O vermelho é sinal, não estrutura: entra em poucos pontos
+     para não virar ruído. */
+  --color-paper: #f5f4f1;
+  --color-paper-pure: #fbfaf8;
+  --color-paper-dim: #edebe5;
 
-  --color-ink: #08090a;
-  --color-ink-900: #0c0e10;
-  --color-ink-800: #14181a;
-  --color-ink-700: #1d2225;
-  --color-ink-600: #2b3236;
+  --color-ink: #0b0f1c;
+  --color-ink-900: #0e1324;
+  --color-ink-800: #141a2e;
+  --color-ink-700: #1c2440;
+  --color-ink-600: #2a3352;
 
-  --color-graphite: #474f54;
-  --color-mute: #6d757a;
-  --color-mute-soft: #9aa1a5;
+  --color-graphite: #474d61;
+  --color-mute: #63687b;
+  --color-mute-soft: #9a9eae;
 
-  --color-line: #e7eaeb;
-  --color-line-strong: #d6dadc;
+  --color-line: #e3e0d9;
+  --color-line-strong: #d2cec5;
 
-  --color-accent: #0c93a4;
-  --color-accent-deep: #077483;
-  --color-accent-bright: #22d3e4;
+  /* azul da marca: acento estrutural (links, rótulos, traços) */
+  --color-accent: #16306e;
+  --color-accent-deep: #0e2050;
+  --color-accent-bright: #7da0ee;
+
+  /* vermelho da marca: acento de sinal, usado com parcimônia.
+     Um grau mais fechado que o vermelho da arte (#d92b1f) para passar em
+     contraste sobre o off-white: 5,1:1 em texto e 5,6:1 com branco por cima. */
+  --color-brand-red: #c9241a;
+  --color-brand-red-bright: #ff5f52;
 
   /* ---- Tipografia ---- */
   --font-sans: var(--font-display), ui-sans-serif, system-ui, -apple-system,
@@ -182,7 +192,7 @@ body {
 }
 
 /* ---------- Scroll reveal ---------- */
-html.js .reveal {
+html[data-js] .reveal {
   opacity: 0;
   transform: translate3d(0, 38px, 0) scale(0.985);
   filter: blur(6px);
@@ -193,7 +203,7 @@ html.js .reveal {
   will-change: opacity, transform, filter;
 }
 
-html.js .reveal[data-visible="true"] {
+html[data-js] .reveal[data-visible="true"] {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
   filter: blur(0);
@@ -216,7 +226,7 @@ html.js .reveal[data-visible="true"] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  html.js .reveal {
+  html[data-js] .reveal {
     opacity: 1;
     transform: none;
     filter: none;

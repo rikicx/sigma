@@ -26,12 +26,13 @@ export function Logo({
     <span className={`flex items-center gap-2.5 ${className}`}>
       {/* ↓ bloco a ser substituído pelo arquivo do logo ↓ */}
       <span className="flex flex-col leading-none">
-        <span
-          className={`text-[16px] font-semibold tracking-[-0.025em] ${
-            tone === "dark" ? "text-white" : "text-ink"
-          }`}
-        >
-          Sigma Brasil
+        {/* assinatura provisória no espírito da arte institucional:
+            "Sigma" em azul-marinho, "Brasil" em vermelho */}
+        <span className="text-[16px] font-semibold tracking-[-0.025em]">
+          <span className={tone === "dark" ? "text-white" : "text-accent"}>Sigma</span>{" "}
+          <span className={tone === "dark" ? "text-brand-red-bright" : "text-brand-red"}>
+            Brasil
+          </span>
         </span>
         <span
           className={`mt-1 font-mono text-[9px] uppercase tracking-[0.22em] ${

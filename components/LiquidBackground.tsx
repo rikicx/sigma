@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { BRAZIL_PATH } from "@/lib/brazil";
 
 /**
  * Cena de fundo do site: metal líquido procedural em WebGL.
@@ -31,8 +32,10 @@ uniform vec2 uPointer;    // -0.5..0.5
 uniform float uQuality;   // 1.0 desktop, 0.0 dispositivo fraco
 out vec4 fragColor;
 
-const vec3 SILVER = vec3(0.755, 0.79, 0.815);
-const vec3 TEAL   = vec3(0.047, 0.576, 0.643);
+const vec3 PAPER  = vec3(0.961, 0.957, 0.945);   // off-white da página
+const vec3 SILVER = vec3(0.755, 0.775, 0.805);
+const vec3 NAVY   = vec3(0.086, 0.188, 0.431);   // azul da marca
+const vec3 RED    = vec3(0.851, 0.169, 0.122);   // vermelho da marca
 
 mat2 rot(float a) { float c = cos(a), s = sin(a); return mat2(c, -s, s, c); }
 
@@ -79,12 +82,15 @@ vec3 surfaceNormal(vec2 p, float e) {
 vec3 env(vec3 d, vec3 lightDir) {
   float up = clamp(d.y * 0.5 + 0.5, 0.0, 1.0);
   vec3 c = mix(SILVER, vec3(1.0), smoothstep(0.18, 0.88, up));
-  c = mix(c, TEAL, smoothstep(0.42, 0.0, up) * 0.17);
+  c = mix(c, NAVY, smoothstep(0.42, 0.0, up) * 0.16);
   // softbox: a faixa de luz que cria o brilho alongado do cromo
   float key = pow(max(dot(d, lightDir), 0.0), 20.0);
   c += vec3(1.0) * key * 0.9;
   float rim = pow(max(dot(d, normalize(vec3(-0.7, 0.2, -0.6))), 0.0), 8.0);
-  c += vec3(0.85, 0.95, 1.0) * rim * 0.25;
+  c += vec3(0.80, 0.88, 1.0) * rim * 0.22;
+  // faísca quente do vermelho da marca, só na borda oposta
+  float warm = pow(max(dot(d, normalize(vec3(0.75, -0.1, -0.5))), 0.0), 10.0);
+  c = mix(c, RED, warm * 0.1);
   return c;
 }
 
@@ -118,7 +124,7 @@ void main() {
     if (t > 16.0) break;
   }
 
-  vec3 col = vec3(1.0);
+  vec3 col = PAPER;
 
   if (hit > 0.0) {
     vec3 n = surfaceNormal(pos.xz, 0.045 + hit * 0.004);
@@ -133,13 +139,13 @@ void main() {
 
     // névoa branca com a distância: a peça nasce do branco da página
     float fog = smoothstep(1.9, 12.0, hit);
-    col = mix(metal, vec3(1.0), fog);
+    col = mix(metal, PAPER, fog);
   }
 
-  // a tipografia vive à esquerda e no topo: ali a peça perde força sem sumir
-  float side = mix(0.46, 1.0, smoothstep(0.06, 0.72, uv.x));
-  float top = mix(0.78, 1.0, smoothstep(0.92, 0.35, uv.y));
-  col = mix(vec3(1.0), col, clamp(side * top, 0.0, 1.0));
+  // o recorte do mapa já define onde a peça existe; aqui só se tira um pouco
+  // de força do lado esquerdo, onde mora a tipografia
+  float side = mix(0.72, 1.0, smoothstep(0.04, 0.6, uv.x));
+  col = mix(PAPER, col, side);
 
   fragColor = vec4(col, 1.0);
 }`;
@@ -158,6 +164,7 @@ function compile(gl: WebGL2RenderingContext, type: number, src: string) {
 
 export function LiquidBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const maskRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -252,6 +259,11 @@ export function LiquidBackground() {
       pointerX += (pointerTargetX - pointerX) * 0.05;
       pointerY += (pointerTargetY - pointerY) * 0.05;
 
+      const mask = maskRef.current;
+      if (mask) {
+        mask.style.transform = `translate3d(0, ${(-scroll * 90).toFixed(1)}px, 0) scale(${(1 + scroll * 0.1).toFixed(3)})`;
+      }
+
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uTime, reduced ? 0 : (performance.now() - start) / 1000);
       gl.uniform1f(uScroll, scroll);
@@ -296,9 +308,34 @@ export function LiquidBackground() {
     };
   }, []);
 
+  /**
+   * O metal só aparece dentro do contorno do país: a máscara é o mapa, com uma
+   * borda suavizada para a silhueta não ficar recortada como adesivo.
+   */
+  const mask = `url("data:image/svg+xml,${encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'><defs><filter id='s' x='-10%' y='-10%' width='120%' height='120%'><feGaussianBlur stdDeviation='9'/></filter></defs><path d='${BRAZIL_PATH}' fill='white' filter='url(%23s)'/></svg>`,
+  )}")`;
+
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-paper">
-      <canvas ref={canvasRef} className="h-full w-full" />
+      <div
+        ref={maskRef}
+        /* inset dá respiro ao redor do país; "contain" faz o mapa caber tanto
+           em tela larga (limitado pela altura) quanto estreita (pela largura) */
+        className="absolute inset-[4%] md:inset-[6%]"
+        style={{
+          maskImage: mask,
+          WebkitMaskImage: mask,
+          maskRepeat: "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
+          maskPosition: "60% 46%",
+          WebkitMaskPosition: "60% 46%",
+          maskSize: "contain",
+          WebkitMaskSize: "contain",
+        }}
+      >
+        <canvas ref={canvasRef} className="h-full w-full" />
+      </div>
     </div>
   );
 }

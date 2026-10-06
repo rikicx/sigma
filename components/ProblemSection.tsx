@@ -29,7 +29,7 @@ export function ProblemSection() {
             <Reveal key={problem.code} delay={index * 70}>
               <article className="group relative h-full bg-paper-pure p-8 transition-colors duration-500 hover:bg-white lg:p-10">
                 <span
-                  className="absolute inset-x-0 top-0 h-px w-0 bg-accent transition-all duration-500 group-hover:w-full"
+                  className="absolute inset-x-0 top-0 h-px w-0 bg-brand-red transition-all duration-500 group-hover:w-full"
                   aria-hidden="true"
                 />
                 <div className="flex items-start justify-between gap-6">

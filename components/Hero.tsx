@@ -15,7 +15,10 @@ export function Hero() {
           <div className="max-w-2xl">
             <Reveal>
               <div className="flex items-center gap-3">
-                <span aria-hidden="true" className="h-px w-8 bg-accent/50" />
+                <span aria-hidden="true" className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-50" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-red" />
+                </span>
                 <span className="eyebrow text-accent">Licenças · Antivírus · Consultoria</span>
               </div>
             </Reveal>

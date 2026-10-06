@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { OffersSection } from "@/components/OffersSection";
 import { ConsultiveStrip } from "@/components/ConsultiveStrip";
+import { CitiesSection } from "@/components/CitiesSection";
 import { FinalCTA } from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <OffersSection />
       <ConsultiveStrip />
+      <CitiesSection />
       <FinalCTA />
     </>
   );

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -87,16 +88,16 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${display.variable} ${technical.variable}`}>
-      <head>
-        {/* marca que o JS está ativo: sem isso o conteúdo nasce visível, sem depender de hidratação */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('js')",
-          }}
-        />
-      </head>
+    <html
+      lang="pt-BR"
+      suppressHydrationWarning
+      className={`${display.variable} ${technical.variable}`}
+    >
       <body className="antialiased">
+        {/* marca que o JS está ativo: sem isso o conteúdo nasce visível, sem depender de hidratação */}
+        <Script id="js-flag" strategy="beforeInteractive">
+          {`document.documentElement.dataset.js="1"`}
+        </Script>
         <a
           href="#conteudo"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-3 focus:text-sm focus:text-white"
