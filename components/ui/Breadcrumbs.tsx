@@ -14,7 +14,9 @@ export function Breadcrumbs({ items }: { items: readonly Crumb[] }) {
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      ...(item.href ? { item: `${site.url}${item.href === "/" ? "" : item.href}` } : {}),
+      ...(item.href
+        ? { item: `${site.url}${item.href === "/" ? "" : item.href}` }
+        : {}),
     })),
   };
 
@@ -27,11 +29,17 @@ export function Breadcrumbs({ items }: { items: readonly Crumb[] }) {
             return (
               <li key={item.label} className="flex items-center gap-2">
                 {item.href && !last ? (
-                  <Link href={item.href} className="transition-colors hover:text-accent">
+                  <Link
+                    href={item.href}
+                    className="-my-1.5 inline-block py-1.5 transition-colors hover:text-accent"
+                  >
                     {item.label}
                   </Link>
                 ) : (
-                  <span className={last ? "text-ink" : undefined} aria-current={last ? "page" : undefined}>
+                  <span
+                    className={last ? "text-ink" : undefined}
+                    aria-current={last ? "page" : undefined}
+                  >
                     {item.label}
                   </span>
                 )}

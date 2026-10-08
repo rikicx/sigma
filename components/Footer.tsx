@@ -9,15 +9,19 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-ink-900 pt-16 pb-10">
-      <div className="grid-technical-dark absolute inset-0 opacity-30" aria-hidden="true" />
+      <div
+        className="grid-technical-dark absolute inset-0 opacity-30"
+        aria-hidden="true"
+      />
 
       <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1.3fr]">
           <div>
             <Logo tone="dark" />
             <p className="mt-6 max-w-xs text-[14px] leading-relaxed text-white/50">
-              Vendemos licenças Microsoft e antivírus corporativo com consultoria em
-              licenciamento, para empresas que precisam decidir com clareza.
+              Vendemos licenças Microsoft e antivírus corporativo com
+              consultoria em licenciamento, para empresas que precisam decidir
+              com clareza.
             </p>
             <a
               href={contact.whatsappHref}
@@ -31,14 +35,14 @@ export function Footer() {
           </div>
 
           <nav aria-label="Navegação do rodapé">
-            <h2 className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+            <h2 className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">
               Navegação
             </h2>
             <ul className="mt-5 space-y-3">
               <li>
                 <Link
                   href={routes.home}
-                  className="text-[14px] text-white/65 transition-colors hover:text-white"
+                  className="inline-block py-2 text-[14px] text-white/65 transition-colors hover:text-white"
                 >
                   Início
                 </Link>
@@ -47,7 +51,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="group inline-flex items-center gap-2 text-[14px] text-white/65 transition-colors hover:text-white"
+                    className="group inline-flex items-center gap-2 py-2 text-[14px] text-white/65 transition-colors hover:text-white"
                   >
                     {item.label}
                     <ArrowRight className="h-3 w-3 -translate-x-1 text-accent-bright opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
@@ -58,36 +62,46 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+            <h2 className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">
               Contato
             </h2>
             <ul className="mt-5 space-y-4 text-[14px] text-white/65">
               <li>
-                <a href={`mailto:${contact.emailVendas}`} className="transition-colors hover:text-white">
+                <a
+                  href={`mailto:${contact.emailVendas}`}
+                  className="inline-block py-2 transition-colors hover:text-white"
+                >
                   {contact.emailVendas}
                 </a>
-                <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/30">
+                <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55">
                   Comercial
                 </span>
               </li>
               <li>
-                <a href={`mailto:${contact.emailGerencia}`} className="transition-colors hover:text-white">
+                <a
+                  href={`mailto:${contact.emailGerencia}`}
+                  className="inline-block py-2 transition-colors hover:text-white"
+                >
                   {contact.emailGerencia}
                 </a>
-                <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/30">
+                <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55">
                   Gerência
                 </span>
               </li>
               <li>
                 {/* ⚠️ TROCAR AQUI: telefone novo prometido pelo cliente. */}
-                <a href={contact.phoneHref} className="transition-colors hover:text-white">
+                <a
+                  href={contact.phoneHref}
+                  className="inline-block py-2 transition-colors hover:text-white"
+                >
                   {contact.phone}
                 </a>
               </li>
               <li className="leading-relaxed">
                 {contact.address.street}
                 <br />
-                {contact.address.district} — {contact.address.city}/{contact.address.state}
+                {contact.address.district} — {contact.address.city}/
+                {contact.address.state}
                 <br />
                 CEP {contact.address.zip}
               </li>
@@ -96,10 +110,10 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-7 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[11px] tracking-[0.1em] text-white/35">
+          <p className="font-mono text-[11px] tracking-[0.1em] text-white/60">
             © {year} Sigma Brasil. Todos os direitos reservados.
           </p>
-          <p className="font-mono text-[11px] tracking-[0.1em] text-white/25">
+          <p className="font-mono text-[11px] tracking-[0.1em] text-white/55">
             Licenças Microsoft · Antivírus · Consultoria
           </p>
         </div>

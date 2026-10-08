@@ -34,27 +34,22 @@ export function ConsultiveStrip() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <Parallax speed={38} minWidth={1024}>
             <Reveal>
-              <div className="flex items-center gap-3">
-                <span aria-hidden="true" className="h-px w-8 bg-accent/50" />
-                <span className="eyebrow text-accent">O diferencial</span>
-              </div>
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 className="display-lg mt-5 text-balance text-ink">
+              <h2 className="display-lg text-balance text-ink">
                 Licença todo mundo vende. Explicar a decisão, não.
               </h2>
             </Reveal>
             <Reveal delay={150}>
               <p className="mt-6 max-w-lg text-pretty text-[15.5px] leading-relaxed text-graphite">
-                Comprar software sem orientação custa caro de dois jeitos: pagando
-                pelo que ninguém usa ou descobrindo tarde que faltou licença. Nosso
-                trabalho é eliminar os dois cenários antes de você assinar.
+                Comprar software sem orientação custa caro de dois jeitos:
+                pagando pelo que ninguém usa ou descobrindo tarde que faltou
+                licença. Nosso trabalho é eliminar os dois cenários antes de
+                você assinar.
               </p>
             </Reveal>
             <Reveal delay={210}>
               <Link
                 href={routes.consultoria}
-                className="group mt-9 inline-flex items-center gap-2 text-[14px] font-medium text-ink transition-colors hover:text-accent"
+                className="group mt-8 inline-flex items-center gap-2 py-2 text-[14px] font-medium text-ink transition-colors hover:text-accent"
               >
                 Conhecer o método Sigma
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -77,11 +72,7 @@ export function ConsultiveStrip() {
 }
 
 /** Item do bloco: o brilho vermelho nasce na posição do ponteiro. */
-function HighlightItem({
-  item,
-}: {
-  item: (typeof highlights)[number];
-}) {
+function HighlightItem({ item }: { item: (typeof highlights)[number] }) {
   const ref = useRef<HTMLLIElement>(null);
   const Icon = icons[item.icon];
 

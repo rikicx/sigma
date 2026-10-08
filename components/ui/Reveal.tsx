@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ElementType,
+  type ReactNode,
+} from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -10,7 +16,12 @@ type RevealProps = {
 };
 
 /** Scroll reveal leve: IntersectionObserver + transição CSS, sem biblioteca de animação. */
-export function Reveal({ children, className = "", delay = 0, as }: RevealProps) {
+export function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  as,
+}: RevealProps) {
   const Tag = (as ?? "div") as ElementType;
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);

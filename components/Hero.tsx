@@ -78,14 +78,15 @@ export function Hero() {
         <Parallax speed={26} minWidth={768} className="hidden lg:block">
           <Reveal delay={280}>
             <ul className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-              {heroIndicators.map((item, index) => (
+              {heroIndicators.map((item) => (
                 <li
                   key={item}
                   className="flex items-center gap-3 bg-paper-pure px-5 py-4 lg:px-6 lg:py-5"
                 >
-                  <span className="font-mono text-[10px] text-accent">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="h-1.5 w-1.5 shrink-0 bg-accent/60"
+                  />
                   <span className="text-[14px] font-medium tracking-[-0.01em] text-ink">
                     {item}
                   </span>

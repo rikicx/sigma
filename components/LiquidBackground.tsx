@@ -214,9 +214,14 @@ export function LiquidBackground() {
     const uPointer = gl.getUniformLocation(program, "uPointer");
     const uQuality = gl.getUniformLocation(program, "uQuality");
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     // telas pequenas e aparelhos sem força recebem menos passos de raymarching
-    const quality = window.innerWidth >= 900 && !/Mobi|Android/i.test(navigator.userAgent) ? 1 : 0;
+    const quality =
+      window.innerWidth >= 900 && !/Mobi|Android/i.test(navigator.userAgent)
+        ? 1
+        : 0;
     const renderScale = quality ? 0.62 : 0.5;
 
     let scroll = 0;
@@ -242,7 +247,8 @@ export function LiquidBackground() {
 
     const readScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      scrollTarget = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      scrollTarget =
+        max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
     };
 
     const onPointer = (event: PointerEvent) => {
@@ -293,11 +299,16 @@ export function LiquidBackground() {
       readScroll();
       schedule();
     });
-    window.addEventListener("scroll", () => {
-      readScroll();
-      schedule();
-    }, { passive: true });
-    if (!reduced) window.addEventListener("pointermove", onPointer, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        readScroll();
+        schedule();
+      },
+      { passive: true },
+    );
+    if (!reduced)
+      window.addEventListener("pointermove", onPointer, { passive: true });
     document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
@@ -328,7 +339,10 @@ export function LiquidBackground() {
   const mask = `url("data:image/svg+xml,${encodeURIComponent(maskSvg)}")`;
 
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-paper">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 -z-10 bg-paper"
+    >
       {/* um contêiner só: máscara e traço compartilham a mesma caixa, então o
           contorno cai exatamente sobre a borda do recorte */}
       <div ref={maskRef} className="absolute inset-[4%] md:inset-[6%]">

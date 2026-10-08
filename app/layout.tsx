@@ -92,11 +92,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="pt-BR"
-      suppressHydrationWarning
-      className={archivo.variable}
-    >
+    <html lang="pt-BR" suppressHydrationWarning className={archivo.variable}>
       <body className="antialiased">
         {/* marca que o JS está ativo: sem isso o conteúdo nasce visível, sem depender de hidratação */}
         <Script id="js-flag" strategy="beforeInteractive">

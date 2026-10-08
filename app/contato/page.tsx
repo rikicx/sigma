@@ -28,7 +28,6 @@ export default function Contato() {
   return (
     <>
       <PageHero
-        eyebrow="Contato"
         title="Fale com o comercial da Sigma Brasil."
         description="Para orçamento de licenças ou antivírus, conte o cenário: quantos computadores, quantos usuários e quais servidores. Assim a resposta já vem com as opções e o custo."
         crumbs={[{ label: "Contato" }]}

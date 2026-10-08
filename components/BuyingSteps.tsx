@@ -9,7 +9,6 @@ export function BuyingSteps() {
     <section className="relative border-t border-line py-20 md:py-28">
       <Container className="relative">
         <SectionHeading
-          eyebrow="Como funciona"
           title="Três passos até a licença certa"
           description="Sem formulário longo e sem catálogo para o cliente decifrar sozinho."
         />
@@ -24,7 +23,9 @@ export function BuyingSteps() {
                 <h3 className="mt-4 text-[19px] font-medium tracking-[-0.022em] text-ink">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-[14.5px] leading-relaxed text-graphite">{step.text}</p>
+                <p className="mt-3 text-[14.5px] leading-relaxed text-graphite">
+                  {step.text}
+                </p>
               </li>
             </Reveal>
           ))}

@@ -35,7 +35,7 @@ const palette = {
     moduleBorder: "border-white/10",
     moduleBg: "bg-white/[0.04]",
     moduleTitle: "text-white/90",
-    moduleMeta: "text-white/40",
+    moduleMeta: "text-white/60",
   },
 } as const;
 
@@ -163,12 +163,36 @@ export function HeroVisual({ tone = "light" }: { tone?: Tone }) {
         />
 
         {/* vértice: anel fino com núcleo sólido */}
-        <circle cx="300" cy="300" r="20" fill="none" stroke={c.accent} strokeOpacity="0.3" strokeWidth="1" />
+        <circle
+          cx="300"
+          cy="300"
+          r="20"
+          fill="none"
+          stroke={c.accent}
+          strokeOpacity="0.3"
+          strokeWidth="1"
+        />
         <circle cx="300" cy="300" r="5.5" fill={c.accent} />
 
         {/* eixo técnico pelo vértice */}
-        <line x1="72" y1="300" x2="246" y2="300" stroke={c.accent} strokeOpacity="0.16" strokeWidth="1" />
-        <line x1="354" y1="300" x2="528" y2="300" stroke={c.accent} strokeOpacity="0.16" strokeWidth="1" />
+        <line
+          x1="72"
+          y1="300"
+          x2="246"
+          y2="300"
+          stroke={c.accent}
+          strokeOpacity="0.16"
+          strokeWidth="1"
+        />
+        <line
+          x1="354"
+          y1="300"
+          x2="528"
+          y2="300"
+          stroke={c.accent}
+          strokeOpacity="0.16"
+          strokeWidth="1"
+        />
 
         {/* pulso discreto no terminal inferior */}
         <circle

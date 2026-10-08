@@ -59,11 +59,19 @@ export function Header() {
             scrolled ? "h-16" : "h-20 md:h-24"
           }`}
         >
-          <Link href={routes.home} onClick={close} aria-label="Sigma Brasil — início">
+          <Link
+            href={routes.home}
+            onClick={close}
+            aria-label="Sigma Brasil — início"
+            className="-my-2 inline-flex py-2"
+          >
             <Logo tone={open ? "dark" : "light"} />
           </Link>
 
-          <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
+          <nav
+            aria-label="Principal"
+            className="hidden items-center gap-7 lg:flex"
+          >
             {nav.map((item) => {
               const active = pathname === item.href;
               return (
@@ -148,19 +156,20 @@ export function Header() {
               {nav.map((item, index) => (
                 <li
                   key={item.href}
-                  style={{ transitionDelay: open ? `${140 + index * 70}ms` : "0ms" }}
+                  style={{
+                    transitionDelay: open ? `${140 + index * 70}ms` : "0ms",
+                  }}
                   className={`border-b border-white/10 transition-all duration-500 ease-out ${
-                    open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                    open
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-6 opacity-0"
                   }`}
                 >
                   <Link
                     href={item.href}
                     onClick={close}
-                    className="group flex items-center gap-5 py-5"
+                    className="group flex items-center gap-4 py-5"
                   >
-                    <span className="font-mono text-[11px] tracking-[0.18em] text-white/35">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
                     <span className="flex-1 text-[27px] font-medium leading-none tracking-[-0.03em] text-white">
                       {item.label}
                     </span>
@@ -172,7 +181,9 @@ export function Header() {
           </nav>
 
           <div
-            style={{ transitionDelay: open ? `${160 + nav.length * 70}ms` : "0ms" }}
+            style={{
+              transitionDelay: open ? `${160 + nav.length * 70}ms` : "0ms",
+            }}
             className={`transition-all duration-500 ease-out ${
               open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
@@ -186,11 +197,17 @@ export function Header() {
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
 
-            <div className="mt-7 flex flex-col gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-white/45">
-              <a href={`mailto:${contact.emailVendas}`} className="transition-colors hover:text-white">
+            <div className="mt-7 flex flex-col gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
+              <a
+                href={`mailto:${contact.emailVendas}`}
+                className="inline-block py-2 transition-colors hover:text-white"
+              >
                 {contact.emailVendas}
               </a>
-              <a href={contact.phoneHref} className="transition-colors hover:text-white">
+              <a
+                href={contact.phoneHref}
+                className="inline-block py-2 transition-colors hover:text-white"
+              >
                 {contact.phone}
               </a>
             </div>

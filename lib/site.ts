@@ -177,32 +177,26 @@ export const antivirusTopics = [
 
 export const problems = [
   {
-    code: "01",
     title: "Contratos difíceis de entender",
     text: "Termos, métricas e regras de uso que mudam de programa para programa e raramente são explicados em linguagem de negócio.",
   },
   {
-    code: "02",
     title: "Licenças incompatíveis com a operação",
     text: "Versões contratadas que não conversam com o número de usuários, de dispositivos ou com o modo como a empresa realmente trabalha.",
   },
   {
-    code: "03",
     title: "Gastos desnecessários",
     text: "Licenças duplicadas, recursos pagos e nunca usados, upgrades feitos por insegurança e não por necessidade.",
   },
   {
-    code: "04",
     title: "Falta de previsibilidade",
     text: "Renovações que chegam sem aviso e orçamentos de tecnologia que mudam de patamar sem explicação clara.",
   },
   {
-    code: "05",
     title: "Riscos de compliance",
     text: "Ambientes com licenciamento incorreto ou mal documentado, expostos a questionamentos em auditoria.",
   },
   {
-    code: "06",
     title: "Mudanças constantes da Microsoft",
     text: "Políticas de licenciamento revisadas periodicamente, exigindo acompanhamento contínuo para não perder o passo.",
   },

@@ -45,24 +45,28 @@ export function ContactChannels() {
         <div className="grid gap-px border border-line bg-line sm:grid-cols-2">
           {channels.map((channel, index) => (
             <Reveal key={channel.label} delay={index * 70}>
-              <div className="h-full bg-paper-pure px-8 py-7">
+              {/* a célula inteira é o alvo: no celular o link sozinho tinha
+                  17px de altura, abaixo do mínimo de toque */}
+              <a
+                href={channel.href}
+                {...(channel.label === "WhatsApp"
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="group block h-full bg-paper-pure px-8 py-7 transition-colors hover:bg-white"
+              >
                 <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-mute">
                   {channel.label}
                 </span>
-                <a
-                  href={channel.href}
-                  {...(channel.label === "WhatsApp"
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                  className="mt-3 flex items-center gap-2 text-[17px] font-medium tracking-[-0.02em] text-ink transition-colors hover:text-accent"
-                >
+                <span className="mt-3 flex items-center gap-2 text-[17px] font-medium tracking-[-0.02em] text-ink transition-colors group-hover:text-accent">
                   {channel.label === "WhatsApp" && (
                     <WhatsAppIcon className="h-4 w-4 text-accent" />
                   )}
                   {channel.value}
-                </a>
-                <p className="mt-2 text-[13.5px] text-graphite">{channel.hint}</p>
-              </div>
+                </span>
+                <span className="mt-2 block text-[13.5px] text-graphite">
+                  {channel.hint}
+                </span>
+              </a>
             </Reveal>
           ))}
         </div>

@@ -8,8 +8,11 @@ export function AntivirusSection() {
     <section className="py-24 md:py-32" aria-labelledby="antivirus-titulo">
       <Container>
         <SectionHeading
-          eyebrow="Kaspersky"
-          title={<span id="antivirus-titulo">Licenciamento Kaspersky para empresas</span>}
+          title={
+            <span id="antivirus-titulo">
+              Licenciamento Kaspersky para empresas
+            </span>
+          }
           description="A conta do antivírus é por dispositivo — e quase sempre está errada: sobra licença de máquina aposentada e falta cobertura em servidor novo. Conferimos isso com você antes da renovação, não depois."
         />
 
@@ -29,7 +32,10 @@ export function AntivirusSection() {
                       key={point}
                       className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-mute"
                     >
-                      <span aria-hidden="true" className="h-1 w-1 bg-accent/70" />
+                      <span
+                        aria-hidden="true"
+                        className="h-1 w-1 bg-accent/70"
+                      />
                       {point}
                     </li>
                   ))}

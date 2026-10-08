@@ -15,7 +15,6 @@ export default function LicencasMicrosoft() {
   return (
     <>
       <PageHero
-        eyebrow="Licenças Microsoft"
         title="Licenças Microsoft para empresas, na medida da operação."
         description="Windows, Windows Pro, Office e Windows Server. Antes de mandar o orçamento, entendemos quantos usuários, quantos dispositivos e quais servidores existem — é isso que define a licença correta e o custo real."
         crumbs={[{ label: "Licenças Microsoft" }]}

@@ -14,7 +14,6 @@ export default function Sobre() {
   return (
     <>
       <PageHero
-        eyebrow="Sobre"
         title="Somos parceiros de decisão, não só fornecedores de licença."
         description="Mais do que entregar software, ajudamos a decidir o que contratar, em que quantidade e por quê — e continuamos por perto depois da compra."
         crumbs={[{ label: "Sobre" }]}

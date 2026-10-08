@@ -25,7 +25,8 @@ function tick() {
   active.forEach(({ el, speed, fade }) => {
     const rect = el.getBoundingClientRect();
     // -1 (entrando por baixo) → 0 (centro) → 1 (saindo por cima)
-    const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2 + rect.height / 2);
+    const progress =
+      (rect.top + rect.height / 2 - vh / 2) / (vh / 2 + rect.height / 2);
     const clamped = Math.max(-1.4, Math.min(1.4, progress));
     el.style.transform = `translate3d(0, ${(clamped * speed).toFixed(2)}px, 0)`;
     if (fade) {

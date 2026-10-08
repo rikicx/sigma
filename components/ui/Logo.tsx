@@ -31,20 +31,29 @@ export function Logo({
   className?: string;
 }) {
   return (
-    <span data-placeholder="logo" className={`flex items-center gap-2.5 ${className}`}>
+    <span
+      data-placeholder="logo"
+      className={`flex items-center gap-2.5 ${className}`}
+    >
       {/* ↓ bloco a ser substituído pelo arquivo do logo ↓ */}
       <span className="flex flex-col leading-none">
         {/* assinatura provisória no espírito da arte institucional:
             "Sigma" em azul-marinho, "Brasil" em vermelho */}
         <span className="text-[16px] font-semibold tracking-[-0.025em]">
-          <span className={tone === "dark" ? "text-white" : "text-accent"}>Sigma</span>{" "}
-          <span className={tone === "dark" ? "text-brand-red-bright" : "text-brand-red"}>
+          <span className={tone === "dark" ? "text-white" : "text-accent"}>
+            Sigma
+          </span>{" "}
+          <span
+            className={
+              tone === "dark" ? "text-brand-red-bright" : "text-brand-red"
+            }
+          >
             Brasil
           </span>
         </span>
         <span
           className={`mt-1 font-mono text-[9px] uppercase tracking-[0.22em] ${
-            tone === "dark" ? "text-white/45" : "text-mute"
+            tone === "dark" ? "text-white/65" : "text-mute"
           }`}
         >
           Tecnologia corporativa

@@ -10,7 +10,6 @@ export function ProductsSection() {
     <section className="py-20 md:py-28" aria-labelledby="produtos-titulo">
       <Container>
         <SectionHeading
-          eyebrow="Produtos"
           title={<span id="produtos-titulo">O que licenciamos</span>}
           description="Cada licença tem uma métrica própria — por dispositivo, por usuário, por servidor. É isso que define o custo e o que pode dar errado numa auditoria."
         />
@@ -39,7 +38,10 @@ export function ProductsSection() {
                         key={point}
                         className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-mute"
                       >
-                        <span aria-hidden="true" className="h-1 w-1 bg-accent/70" />
+                        <span
+                          aria-hidden="true"
+                          className="h-1 w-1 bg-accent/70"
+                        />
                         {point}
                       </li>
                     ))}

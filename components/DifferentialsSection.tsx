@@ -14,7 +14,6 @@ export function DifferentialsSection() {
     >
       <Container>
         <SectionHeading
-          eyebrow="Diferenciais"
           title={
             <span id="diferenciais-titulo">
               Tecnologia com precisão técnica e atendimento humano.
@@ -27,13 +26,17 @@ export function DifferentialsSection() {
           <Reveal className="lg:col-span-1">
             <article className="relative flex h-full flex-col justify-between overflow-hidden border border-line bg-paper-pure p-9 lg:p-10">
               <div className="relative">
-                <span className="eyebrow text-accent">Princípio</span>
-                <h3 className="display-md mt-6 text-balance text-ink">{featured.title}</h3>
+                <h3 className="display-md text-balance text-ink">
+                  {featured.title}
+                </h3>
                 <p className="mt-5 text-[15px] leading-relaxed text-graphite">
                   {featured.text}
                 </p>
               </div>
-              <div className="relative mt-12 flex items-end gap-1" aria-hidden="true">
+              <div
+                className="relative mt-12 flex items-end gap-1"
+                aria-hidden="true"
+              >
                 {[28, 44, 60, 76, 92].map((height, i) => (
                   <span
                     key={height}

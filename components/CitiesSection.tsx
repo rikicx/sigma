@@ -54,20 +54,18 @@ export function CitiesSection() {
       <Container>
         <div className="max-w-2xl">
           <Reveal>
-            <div className="flex items-center gap-3">
-              <span aria-hidden="true" className="h-px w-8 bg-brand-red/60" />
-              <span className="eyebrow text-brand-red">Onde atendemos</span>
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <h2 id="cidades-titulo" className="display-lg mt-5 text-balance text-ink">
+            <h2
+              id="cidades-titulo"
+              className="display-lg text-balance text-ink"
+            >
               Rio de Janeiro e São Paulo.
             </h2>
           </Reveal>
           <Reveal delay={140}>
             <p className="mt-6 text-pretty text-[15.5px] leading-relaxed text-graphite">
-              Atendemos empresas nas duas cidades com o mesmo time e o mesmo critério
-              técnico para dimensionar licenças, antivírus e renovações.
+              Atendemos empresas nas duas cidades com o mesmo time e o mesmo
+              critério técnico para dimensionar licenças, antivírus e
+              renovações.
             </p>
           </Reveal>
         </div>
@@ -79,7 +77,11 @@ export function CitiesSection() {
                 {/* altura em vh com teto: a moldura nunca passa de meia tela,
                     independentemente do tamanho do monitor */}
                 <div className="relative h-[clamp(260px,48vh,460px)] overflow-hidden">
-                  <Parallax speed={22} minWidth={768} className="absolute inset-[-7%]">
+                  <Parallax
+                    speed={22}
+                    minWidth={768}
+                    className="absolute inset-[-7%]"
+                  >
                     <Image
                       src={city.src}
                       alt={city.alt}

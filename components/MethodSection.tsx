@@ -55,7 +55,6 @@ export function MethodSection() {
 
       <Container className="relative">
         <SectionHeading
-          eyebrow="Método Sigma"
           tone="dark"
           title={
             <span id="metodo-titulo">
@@ -109,7 +108,7 @@ export function MethodSection() {
                     <div className="lg:pt-12">
                       <span
                         className={`font-mono text-[11px] tracking-[0.18em] transition-colors duration-500 ${
-                          active ? "text-accent-bright" : "text-white/30"
+                          active ? "text-accent-bright" : "text-white/55"
                         }`}
                       >
                         {item.step} — {item.meta}

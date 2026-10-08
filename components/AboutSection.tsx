@@ -14,22 +14,25 @@ export function AboutSection() {
           <Reveal>
             <div className="max-w-2xl">
               <p className="text-pretty text-lg leading-relaxed text-ink md:text-xl md:leading-relaxed">
-                Vendemos licenças de software e antivírus para empresas — e tratamos
-                cada venda como uma decisão técnica, não como um pedido de catálogo.
+                Vendemos licenças de software e antivírus para empresas — e
+                tratamos cada venda como uma decisão técnica, não como um pedido
+                de catálogo.
               </p>
               <p className="mt-6 text-pretty text-[15.5px] leading-relaxed text-graphite">
-                Isso começa por entender a operação: quantas pessoas trabalham, quais
-                dispositivos existem, quais servidores sustentam o negócio e o que já está
-                licenciado hoje. Só então falamos de versão, quantidade e custo. É o que
-                evita os dois erros mais comuns: pagar por software que ninguém usa e
-                descobrir, no pior momento, que faltava licença.
+                Isso começa por entender a operação: quantas pessoas trabalham,
+                quais dispositivos existem, quais servidores sustentam o negócio
+                e o que já está licenciado hoje. Só então falamos de versão,
+                quantidade e custo. É o que evita os dois erros mais comuns:
+                pagar por software que ninguém usa e descobrir, no pior momento,
+                que faltava licença.
               </p>
               <p className="mt-6 text-pretty text-[15.5px] leading-relaxed text-graphite">
-                Trabalhamos com linguagem simples para assuntos complexos. As regras de
-                licenciamento mudam com frequência, e acompanhar essas mudanças é
-                responsabilidade nossa, não da equipe do cliente. O resultado que buscamos
-                é previsível: o ambiente certo, pelo custo adequado, sem risco de
-                compliance e preparado para o próximo passo da empresa.
+                Trabalhamos com linguagem simples para assuntos complexos. As
+                regras de licenciamento mudam com frequência, e acompanhar essas
+                mudanças é responsabilidade nossa, não da equipe do cliente. O
+                resultado que buscamos é previsível: o ambiente certo, pelo
+                custo adequado, sem risco de compliance e preparado para o
+                próximo passo da empresa.
               </p>
             </div>
           </Reveal>

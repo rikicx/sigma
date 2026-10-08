@@ -5,11 +5,14 @@ import { problems } from "@/lib/site";
 
 export function ProblemSection() {
   return (
-    <section id="problema" className="relative py-24 md:py-32" aria-labelledby="problema-titulo">
+    <section
+      id="problema"
+      className="relative py-24 md:py-32"
+      aria-labelledby="problema-titulo"
+    >
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
           <SectionHeading
-            eyebrow="O problema"
             title={
               <span id="problema-titulo">
                 Licenciamento de software não deveria ser uma decisão no escuro.
@@ -18,35 +21,33 @@ export function ProblemSection() {
           />
           <Reveal delay={120}>
             <p className="max-w-sm text-pretty text-[15px] leading-relaxed text-graphite lg:text-right">
-              Traduzimos cenário técnico e proposta comercial em uma decisão simples:
-              o que contratar, quanto custa e o que acontece se não for assim.
+              Traduzimos cenário técnico e proposta comercial em uma decisão
+              simples: o que contratar, quanto custa e o que acontece se não for
+              assim.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+        {/* lista com fio, não grade de seis caixas idênticas: são sintomas de
+            um mesmo problema, não seis produtos */}
+        <dl className="mt-14 grid gap-x-16 border-t border-line sm:grid-cols-2">
           {problems.map((problem, index) => (
-            <Reveal key={problem.code} delay={index * 70}>
-              <article className="group relative h-full bg-paper-pure p-8 transition-colors duration-500 hover:bg-white lg:p-10">
-                <span
-                  className="absolute inset-x-0 top-0 h-px w-0 bg-brand-red transition-all duration-500 group-hover:w-full"
-                  aria-hidden="true"
-                />
-                <div className="flex items-start justify-between gap-6">
-                  <h3 className="max-w-[16ch] text-[19px] font-medium leading-snug tracking-[-0.02em] text-ink">
-                    {problem.title}
-                  </h3>
-                  <span className="font-mono text-[11px] text-mute-soft transition-colors duration-500 group-hover:text-accent">
-                    {problem.code}
-                  </span>
-                </div>
-                <p className="mt-5 text-[14.5px] leading-relaxed text-graphite">
+            <Reveal key={problem.title} delay={(index % 2) * 60}>
+              <div className="group border-b border-line py-7">
+                <dt className="flex items-baseline gap-3 text-[18px] font-medium leading-snug tracking-[-0.022em] text-ink">
+                  <span
+                    aria-hidden="true"
+                    className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 bg-brand-red/70 transition-transform duration-500 group-hover:scale-150"
+                  />
+                  {problem.title}
+                </dt>
+                <dd className="mt-2.5 pl-[1.125rem] text-[14.5px] leading-relaxed text-graphite">
                   {problem.text}
-                </p>
-              </article>
+                </dd>
+              </div>
             </Reveal>
           ))}
-        </div>
+        </dl>
       </Container>
     </section>
   );

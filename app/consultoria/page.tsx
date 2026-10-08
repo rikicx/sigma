@@ -17,7 +17,6 @@ export default function Consultoria() {
   return (
     <>
       <PageHero
-        eyebrow="Consultoria"
         title="A parte que transforma uma compra de software em uma decisão consciente."
         description="Licenciamento tem métrica, regra e prazo. Nosso papel é garantir que você compre o que usa, entenda o que assinou e não seja surpreendido na renovação nem na auditoria."
         crumbs={[{ label: "Consultoria" }]}

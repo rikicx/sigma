@@ -12,7 +12,10 @@ export function FinalCTA({
   text?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-ink py-20 md:py-24" aria-labelledby="cta-titulo">
+    <section
+      className="relative overflow-hidden bg-ink py-20 md:py-24"
+      aria-labelledby="cta-titulo"
+    >
       <div
         className="absolute left-1/2 top-1/2 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[140px]"
         aria-hidden="true"
@@ -51,11 +54,11 @@ export function FinalCTA({
             </div>
           </Reveal>
           <Reveal delay={240}>
-            <p className="mt-8 text-[13px] text-white/40">
+            <p className="mt-8 text-[13px] text-white/60">
               Ou escreva para{" "}
               <a
                 href={`mailto:${contact.emailVendas}`}
-                className="text-white/70 underline underline-offset-4 transition-colors hover:text-accent-bright"
+                className="inline-block py-2 text-white/80 underline underline-offset-4 transition-colors hover:text-brand-red-bright"
               >
                 {contact.emailVendas}
               </a>
