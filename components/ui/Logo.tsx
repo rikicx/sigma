@@ -1,5 +1,13 @@
 /**
- * ⚠️ TROCAR AQUI: LOGO DA SIGMA BRASIL
+ * ⚠️ PLACEHOLDER — ESTA NÃO É A LOGO DEFINITIVA.
+ *
+ * O que está aqui é uma assinatura tipográfica provisória, feita em texto, no
+ * espírito da arte institucional ("Sigma" em azul-marinho, "Brasil" em
+ * vermelho). Ela existe só para o site não ficar sem marca até o arquivo
+ * chegar, e deve ser substituída por uma IMAGEM de logo.
+ *
+ * O elemento carrega data-placeholder="logo" para ser localizado rápido no
+ * DevTools e numa busca pelo projeto.
  *
  * Por enquanto a marca aparece apenas como assinatura tipográfica.
  * Para aplicar o logo definitivo:
@@ -23,7 +31,7 @@ export function Logo({
   className?: string;
 }) {
   return (
-    <span className={`flex items-center gap-2.5 ${className}`}>
+    <span data-placeholder="logo" className={`flex items-center gap-2.5 ${className}`}>
       {/* ↓ bloco a ser substituído pelo arquivo do logo ↓ */}
       <span className="flex flex-col leading-none">
         {/* assinatura provisória no espírito da arte institucional:

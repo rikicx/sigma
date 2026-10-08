@@ -63,6 +63,10 @@ Os pontos que precisam de validação do cliente estão marcados com `⚠️ TRO
 
 ### Aplicar o logo
 
+> **A marca no site é um placeholder.** O que aparece hoje é texto
+> ("Sigma" em azul + "Brasil" em vermelho), não um arquivo de logo. Procure por
+> `data-placeholder="logo"` para achar todos os pontos de uso.
+
 A marca aparece hoje só como assinatura tipográfica ("Sigma Brasil" + subtítulo).
 Para aplicar o arquivo definitivo, coloque o logo em `public/logo.svg` (e, se
 houver, `public/logo-branco.svg` para fundo escuro) e substitua o bloco marcado em

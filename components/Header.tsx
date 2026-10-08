@@ -52,7 +52,8 @@ export function Header() {
             : "border-b border-transparent bg-transparent"
       }`}
     >
-      <Container>
+      {/* a barra fica acima do painel do menu: sem isso o overlay cobre a logo */}
+      <Container className="relative z-50">
         <div
           className={`flex items-center justify-between transition-all duration-500 ${
             scrolled ? "h-16" : "h-20 md:h-24"
