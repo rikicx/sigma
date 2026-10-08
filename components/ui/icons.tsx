@@ -13,6 +13,22 @@ const base = {
 
 /** Ícones abstratos: geometria técnica, sem metáfora óbvia de "TI". */
 export const icons = {
+  gauge: (props: IconProps) => (
+    <svg {...base} {...props}>
+      <path d="M5 23a11 11 0 1 1 22 0" />
+      <path d="M16 23L23 13" />
+      <circle cx="16" cy="23" r="1.8" fill="currentColor" stroke="none" />
+      <path d="M8 18.5l1.6.9M24 18.5l-1.6.9M16 8v2" strokeOpacity="0.5" />
+    </svg>
+  ),
+  brackets: (props: IconProps) => (
+    <svg {...base} {...props}>
+      <path d="M11 7L4 16l7 9" />
+      <path d="M21 7l7 9-7 9" />
+      <path d="M13 20h6" />
+      <path d="M13 14h6" strokeOpacity="0.5" />
+    </svg>
+  ),
   windows: (props: IconProps) => (
     <svg {...base} {...props}>
       <rect x="4" y="5" width="11" height="10" />
