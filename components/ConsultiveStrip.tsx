@@ -26,7 +26,7 @@ export function ConsultiveStrip() {
     <section className="relative border-y border-line py-20 md:py-28">
       <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <Parallax speed={38}>
+          <Parallax speed={38} minWidth={1024}>
             <Reveal>
               <div className="flex items-center gap-3">
                 <span aria-hidden="true" className="h-px w-8 bg-accent/50" />

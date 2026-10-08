@@ -43,6 +43,7 @@ export function Parallax({
   children,
   speed = 40,
   fade = false,
+  minWidth = 0,
   className = "",
   as,
 }: {
@@ -50,6 +51,9 @@ export function Parallax({
   /** Deslocamento em px entre o topo e a base da viewport. Negativo inverte. */
   speed?: number;
   fade?: boolean;
+  /** Abaixo desta largura o elemento não se move: em tela estreita o
+      deslocamento vertical encosta um bloco no outro. */
+  minWidth?: number;
   className?: string;
   as?: ElementType;
 }) {
@@ -61,6 +65,7 @@ export function Parallax({
     if (!el) return;
     reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) return;
+    if (window.innerWidth < minWidth) return;
 
     const entry: Entry = { el, speed, fade };
     const observer = new IntersectionObserver(
@@ -80,7 +85,7 @@ export function Parallax({
       observer.disconnect();
       active.delete(entry);
     };
-  }, [speed, fade]);
+  }, [speed, fade, minWidth]);
 
   return (
     <Tag ref={ref} className={`will-change-transform ${className}`}>

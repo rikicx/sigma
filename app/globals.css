@@ -44,6 +44,7 @@
   --animate-pulse-node: pulse-node 4s ease-in-out infinite;
   --animate-dash: dash 9s linear infinite;
   --animate-scan: scan 7s linear infinite;
+  --animate-trace: trace 18s linear infinite;
 }
 
 @keyframes drift {
@@ -71,6 +72,16 @@
 @keyframes dash {
   to {
     stroke-dashoffset: -400;
+  }
+}
+
+/* segmento que percorre o contorno do mapa, sem fim */
+@keyframes trace {
+  from {
+    stroke-dashoffset: 2000;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }
 

@@ -34,7 +34,7 @@ export function FinalCTA({
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href={routes.contato}
-                className="group inline-flex w-full items-center justify-center gap-2.5 bg-white px-7 py-4 text-sm font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:bg-accent-bright sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2.5 bg-white px-7 py-4 text-sm font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:bg-brand-red-bright hover:text-white sm:w-auto"
               >
                 Solicitar orçamento
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

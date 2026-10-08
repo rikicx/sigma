@@ -41,7 +41,7 @@ export function Hero() {
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Link
                   href={routes.contato}
-                  className="group inline-flex items-center justify-center gap-2.5 bg-ink px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-accent"
+                  className="group inline-flex items-center justify-center gap-2.5 bg-accent px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-accent-deep"
                 >
                   Solicitar orçamento
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -57,14 +57,14 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <Parallax speed={-70}>
+          <Parallax speed={-70} minWidth={1024}>
             <Reveal delay={180} className="flex justify-center lg:justify-end">
               <HeroVisual tone="light" />
             </Reveal>
           </Parallax>
         </div>
 
-        <Parallax speed={26}>
+        <Parallax speed={26} minWidth={768}>
           <Reveal delay={280}>
             <ul className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {heroIndicators.map((item, index) => (

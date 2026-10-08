@@ -64,6 +64,7 @@ export const offers = [
     href: routes.licencas,
     cta: "Ver licenças Microsoft",
     icon: "windows" as const,
+    tone: "navy" as const,
   },
   {
     id: "antivirus",
@@ -74,6 +75,7 @@ export const offers = [
     href: routes.antivirus,
     cta: "Ver antivírus corporativo",
     icon: "shield" as const,
+    tone: "red" as const,
   },
 ] as const;
 

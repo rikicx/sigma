@@ -13,6 +13,8 @@ const palette = {
     sigmaMid: "#16306e",
     sigmaTo: "rgba(11,15,28,0.18)",
     accent: "#16306e",
+    brandRed: "#c9241a",
+    paper: "#f5f4f1",
     glow: "#16306e",
     moduleBorder: "border-line",
     moduleBg: "bg-paper-pure/80",
@@ -27,6 +29,8 @@ const palette = {
     sigmaMid: "#7da0ee",
     sigmaTo: "rgba(255,255,255,0.28)",
     accent: "#7da0ee",
+    brandRed: "#ff5f52",
+    paper: "#0b0f1c",
     glow: "#7da0ee",
     moduleBorder: "border-white/10",
     moduleBg: "bg-white/[0.04]",
@@ -107,84 +111,74 @@ export function HeroVisual({ tone = "light" }: { tone?: Tone }) {
         }}
       >
         <defs>
-          <linearGradient id={`sigmaStroke-${tone}`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor={c.sigmaFrom} />
-            <stop offset="58%" stopColor={c.sigmaMid} />
-            <stop offset="100%" stopColor={c.sigmaTo} />
-          </linearGradient>
           <radialGradient id={`glow-${tone}`} cx="50%" cy="45%" r="50%">
-            <stop offset="0%" stopColor={c.glow} stopOpacity="0.16" />
+            <stop offset="0%" stopColor={c.glow} stopOpacity="0.14" />
             <stop offset="100%" stopColor={c.glow} stopOpacity="0" />
           </radialGradient>
         </defs>
 
-        <circle cx="300" cy="280" r="250" fill={`url(#glow-${tone})`} />
+        <circle cx="300" cy="300" r="250" fill={`url(#glow-${tone})`} />
 
-        {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+        {/* camadas somadas: a base conceitual do Σ, bem discretas */}
+        {[0, 1, 2, 3, 4, 5].map((i) => (
           <line
             key={i}
-            x1={120 + i * 6}
-            x2={480 - i * 6}
-            y1={140 + i * 42}
-            y2={140 + i * 42}
+            x1={146 + i * 5}
+            x2={454 - i * 5}
+            y1={176 + i * 50}
+            y2={176 + i * 50}
             stroke={c.line}
-            strokeOpacity={c.lineOpacity}
+            strokeOpacity={0.05}
             strokeWidth="1"
           />
         ))}
 
+        {/* eco em fio: a mesma forma, deslocada, como linha de construção */}
         <path
-          className="conn-line"
-          d="M120 182 L300 300 L480 182"
+          d="M446 126 H146 L292 300 L146 474 H446"
+          fill="none"
           stroke={c.accent}
-          strokeOpacity="0.4"
+          strokeOpacity="0.14"
           strokeWidth="1"
-          fill="none"
-        />
-        <path
-          className="conn-line"
-          d="M120 434 L300 300 L480 434"
-          stroke={c.accent}
-          strokeOpacity="0.28"
-          strokeWidth="1"
-          fill="none"
-          style={{ animationDelay: "-3s" }}
-        />
-
-        <path
-          d="M425 150 H185 L300 300 L185 450 H425"
-          fill="none"
-          stroke={`url(#sigmaStroke-${tone})`}
-          strokeWidth="9"
-          strokeLinecap="square"
           strokeLinejoin="miter"
         />
+
+        {/* Σ: traço firme, junções em esquadro, sem sombra */}
         <path
-          d="M425 150 H185"
+          d="M452 140 H160 L300 300 L160 460 H452"
           fill="none"
           stroke={c.accent}
-          strokeWidth="9"
-          strokeLinecap="square"
-          strokeOpacity="0.9"
+          strokeWidth="13"
+          strokeLinecap="butt"
+          strokeLinejoin="miter"
         />
 
-        {[
-          [185, 150],
-          [425, 150],
-          [300, 300],
-          [185, 450],
-          [425, 450],
-        ].map(([cx, cy], i) => (
-          <circle
-            key={`${cx}-${cy}`}
-            cx={cx}
-            cy={cy}
-            r="4.5"
-            fill={c.accent}
-            className="animate-[var(--animate-pulse-node)]"
-            style={{ animationDelay: `${i * 0.6}s`, transformOrigin: `${cx}px ${cy}px` }}
-          />
-        ))}
+        {/* terminal vermelho: um trecho curto da barra superior, como na marca */}
+        <path
+          d="M452 140 H388"
+          fill="none"
+          stroke={c.brandRed}
+          strokeWidth="13"
+          strokeLinecap="butt"
+        />
+
+        {/* vértice: anel fino com núcleo sólido */}
+        <circle cx="300" cy="300" r="20" fill="none" stroke={c.accent} strokeOpacity="0.3" strokeWidth="1" />
+        <circle cx="300" cy="300" r="5.5" fill={c.accent} />
+
+        {/* eixo técnico pelo vértice */}
+        <line x1="72" y1="300" x2="246" y2="300" stroke={c.accent} strokeOpacity="0.16" strokeWidth="1" />
+        <line x1="354" y1="300" x2="528" y2="300" stroke={c.accent} strokeOpacity="0.16" strokeWidth="1" />
+
+        {/* pulso discreto no terminal inferior */}
+        <circle
+          cx="452"
+          cy="460"
+          r="5"
+          fill={c.brandRed}
+          className="animate-[var(--animate-pulse-node)]"
+          style={{ transformOrigin: "452px 460px" }}
+        />
       </svg>
 
       <FloatingModule

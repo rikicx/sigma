@@ -21,7 +21,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar com a Sigma Brasil no WhatsApp"
-      className={`group fixed bottom-6 right-6 z-40 flex items-center bg-ink text-white shadow-[0_18px_40px_-16px_rgba(8,9,10,0.55)] transition-all duration-500 hover:bg-ink-800 md:bottom-8 md:right-8 ${
+      className={`group fixed bottom-6 right-6 z-40 flex items-center bg-accent text-white shadow-[0_18px_40px_-16px_rgba(8,9,10,0.55)] transition-all duration-500 hover:bg-accent-deep md:bottom-8 md:right-8 ${
         visible
           ? "pointer-events-auto translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"
@@ -31,10 +31,10 @@ export function WhatsAppButton() {
         Falar no WhatsApp
       </span>
       <span className="flex h-14 w-14 shrink-0 items-center justify-center">
-        <WhatsAppIcon className="h-6 w-6 text-accent-bright transition-transform duration-500 group-hover:scale-110" />
+        <WhatsAppIcon className="h-6 w-6 text-white transition-transform duration-500 group-hover:scale-110" />
       </span>
       <span
-        className="absolute inset-x-0 top-0 h-px bg-accent-bright/50"
+        className="absolute inset-x-0 top-0 h-px bg-brand-red-bright/70"
         aria-hidden="true"
       />
     </a>

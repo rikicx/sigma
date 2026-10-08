@@ -77,7 +77,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               href={routes.contato}
-              className="group hidden items-center gap-2 bg-ink px-5 py-3 text-[13px] font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-accent sm:inline-flex"
+              className="group hidden items-center gap-2 bg-accent px-5 py-3 text-[13px] font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-brand-red sm:inline-flex"
             >
               Solicitar orçamento
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -130,7 +130,7 @@ export function Header() {
             <Link
               href={routes.contato}
               onClick={close}
-              className="mt-5 mb-6 inline-flex items-center justify-center gap-2 bg-ink px-5 py-4 text-sm font-medium text-white"
+              className="mt-5 mb-6 inline-flex items-center justify-center gap-2 bg-accent px-5 py-4 text-sm font-medium text-white"
             >
               Solicitar orçamento
               <ArrowRight className="h-3.5 w-3.5" />

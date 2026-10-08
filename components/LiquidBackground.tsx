@@ -329,28 +329,45 @@ export function LiquidBackground() {
 
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-paper">
-      <div
-        ref={maskRef}
-        /* inset dá respiro ao redor do país; "contain" faz o mapa caber tanto
-           em tela larga (limitado pela altura) quanto estreita (pela largura) */
-        className="absolute inset-[4%] md:inset-[6%]"
-        style={{
-          // o Safari perde máscaras sobre canvas acelerado quando a camada não
-          // está isolada; o transform do parallax já promove a camada, e o
-          // isolation garante o contexto próprio
-          isolation: "isolate",
-          willChange: "transform",
-          maskImage: mask,
-          WebkitMaskImage: mask,
-          maskRepeat: "no-repeat",
-          WebkitMaskRepeat: "no-repeat",
-          maskPosition: "60% 46%",
-          WebkitMaskPosition: "60% 46%",
-          maskSize: "contain",
-          WebkitMaskSize: "contain",
-        }}
-      >
-        <canvas ref={canvasRef} className="h-full w-full" />
+      {/* um contêiner só: máscara e traço compartilham a mesma caixa, então o
+          contorno cai exatamente sobre a borda do recorte */}
+      <div ref={maskRef} className="absolute inset-[4%] md:inset-[6%]">
+        <div
+          className="absolute inset-0"
+          style={{
+            isolation: "isolate",
+            maskImage: mask,
+            WebkitMaskImage: mask,
+            maskRepeat: "no-repeat",
+            WebkitMaskRepeat: "no-repeat",
+            maskPosition: "center",
+            WebkitMaskPosition: "center",
+            maskSize: "contain",
+            WebkitMaskSize: "contain",
+          }}
+        >
+          <canvas ref={canvasRef} className="h-full w-full" />
+        </div>
+
+        {/* sem contorno fixo: só um segmento cinza claro percorrendo o país,
+            discreto o bastante para não brigar com o conteúdo da frente */}
+        <svg
+          className="absolute inset-0 h-full w-full"
+          viewBox="0 0 1000 1000"
+          preserveAspectRatio="xMidYMid meet"
+          fill="none"
+        >
+          <path
+            d={BRAZIL_PATH}
+            pathLength={2000}
+            stroke="currentColor"
+            className="animate-[var(--animate-trace)] text-mute-soft/55"
+            strokeWidth="1"
+            strokeLinecap="round"
+            vectorEffect="non-scaling-stroke"
+            strokeDasharray="90 1910"
+          />
+        </svg>
       </div>
     </div>
   );
