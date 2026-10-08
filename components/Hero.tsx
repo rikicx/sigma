@@ -9,10 +9,10 @@ import { heroIndicators, routes } from "@/lib/site";
 /** Primeira dobra da home: clara, curta e com a oferta explícita. */
 export function Hero() {
   return (
-    <section className="relative flex flex-col justify-center overflow-hidden pt-28 pb-14 lg:min-h-[92vh] lg:pt-32 lg:pb-20">
-      <Container className="relative">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-          <div className="max-w-2xl">
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden pt-28 pb-10 lg:min-h-[92vh] lg:justify-center lg:pt-32 lg:pb-20">
+      <Container className="relative flex flex-1 flex-col">
+        <div className="grid flex-1 items-center gap-8 lg:flex-none lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+          <div className="flex max-w-2xl flex-col justify-center lg:block">
             <Reveal>
               <div className="flex items-center gap-3">
                 <span aria-hidden="true" className="relative flex h-1.5 w-1.5">
@@ -67,9 +67,9 @@ export function Hero() {
           </Parallax>
         </div>
 
-        <Parallax speed={26} minWidth={768}>
+        <Parallax speed={26} minWidth={768} className="hidden lg:block">
           <Reveal delay={280}>
-            <ul className="mt-10 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+            <ul className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {heroIndicators.map((item, index) => (
               <li
                 key={item}
