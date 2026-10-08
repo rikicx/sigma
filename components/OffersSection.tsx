@@ -13,8 +13,8 @@ export function OffersSection() {
       <Container>
         <SectionHeading
           eyebrow="O que vendemos"
-          title={<span id="ofertas-titulo">Duas frentes, um mesmo cuidado na escolha.</span>}
-          description="Software e segurança para o ambiente corporativo, licenciados pelo uso real da empresa."
+          title={<span id="ofertas-titulo">O que a sua empresa contrata com a gente.</span>}
+          description="Software e segurança para o ambiente corporativo, licenciados pelo uso real — e com orçamento que a diretoria entende sem precisar de tradução."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-2">

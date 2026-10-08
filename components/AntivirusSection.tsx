@@ -10,7 +10,7 @@ export function AntivirusSection() {
         <SectionHeading
           eyebrow="Kaspersky"
           title={<span id="antivirus-titulo">Licenciamento Kaspersky para empresas</span>}
-          description="A conta do antivírus corporativo é por dispositivo — e quase sempre está errada: sobra licença de máquina aposentada e falta cobertura em servidor novo. Ajustamos isso antes da renovação."
+          description="A conta do antivírus é por dispositivo — e quase sempre está errada: sobra licença de máquina aposentada e falta cobertura em servidor novo. Conferimos isso com você antes da renovação, não depois."
         />
 
         <div className="mt-16 grid gap-px border border-line bg-line md:grid-cols-3">
@@ -41,8 +41,8 @@ export function AntivirusSection() {
 
         <Reveal delay={200}>
           <p className="mt-10 max-w-2xl text-[13.5px] leading-relaxed text-mute">
-            Kaspersky é marca registrada da Kaspersky Lab. A Sigma Brasil atua na venda e
-            no dimensionamento das licenças.
+            Kaspersky é marca registrada da Kaspersky Lab. Atuamos na venda e no
+            dimensionamento das licenças.
           </p>
         </Reveal>
       </Container>

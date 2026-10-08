@@ -6,7 +6,7 @@ import { contact, routes } from "@/lib/site";
 
 export function FinalCTA({
   title = "Precisa de licenças ou antivírus para a sua empresa?",
-  text = "Conte o cenário da operação e devolvemos a recomendação com as opções, o custo e o que muda em cada uma.",
+  text = "Diga quantos computadores e usuários a empresa tem. Devolvemos as opções, o custo de cada uma e o que muda entre elas.",
 }: {
   title?: string;
   text?: string;

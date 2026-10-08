@@ -14,8 +14,8 @@ export function AboutSection() {
           <Reveal>
             <div className="max-w-2xl">
               <p className="text-pretty text-lg leading-relaxed text-ink md:text-xl md:leading-relaxed">
-                A Sigma Brasil vende licenças de software e antivírus para empresas — e
-                trata cada venda como uma decisão técnica, não como um pedido de catálogo.
+                Vendemos licenças de software e antivírus para empresas — e tratamos
+                cada venda como uma decisão técnica, não como um pedido de catálogo.
               </p>
               <p className="mt-6 text-pretty text-[15.5px] leading-relaxed text-graphite">
                 Isso começa por entender a operação: quantas pessoas trabalham, quais

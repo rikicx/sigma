@@ -351,17 +351,25 @@ export function LiquidBackground() {
 
         {/* sem contorno fixo: só um segmento cinza claro percorrendo o país,
             discreto o bastante para não brigar com o conteúdo da frente */}
+        {/* o traço some no canto superior esquerdo, onde mora a tipografia:
+            sem isso ele cruza o texto e parece um risco solto na tela */}
         <svg
           className="absolute inset-0 h-full w-full"
           viewBox="0 0 1000 1000"
           preserveAspectRatio="xMidYMid meet"
           fill="none"
+          style={{
+            maskImage:
+              "linear-gradient(to bottom right, transparent 18%, #000 58%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom right, transparent 18%, #000 58%)",
+          }}
         >
           <path
             d={BRAZIL_PATH}
             pathLength={2000}
             stroke="currentColor"
-            className="animate-[var(--animate-trace)] text-mute-soft/55"
+            className="animate-[var(--animate-trace)] text-mute-soft/45"
             strokeWidth="1"
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"

@@ -25,15 +25,16 @@ export function Hero() {
 
             <Reveal delay={80}>
               <h1 className="display-xl mt-7 text-balance text-ink">
-                Licenças Microsoft e antivírus para empresas, com quem explica a decisão.
+                Licenças Microsoft e antivírus para a sua empresa, sem pagar
+                pelo que não se usa.
               </h1>
             </Reveal>
 
             <Reveal delay={150}>
               <p className="mt-7 max-w-xl text-pretty text-base leading-relaxed text-graphite md:text-lg">
-                A Sigma Brasil vende e dimensiona o software que a sua operação precisa —
-                sem licença sobrando, sem licença faltando e sem contrato que ninguém
-                entende.
+                Fazemos a conta antes da compra: quantos usuários, quantos
+                dispositivos, quais servidores. Você recebe as opções, o custo de cada
+                uma e a recomendação — em português, não em contrato.
               </p>
             </Reveal>
 

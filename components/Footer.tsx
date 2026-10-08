@@ -16,8 +16,8 @@ export function Footer() {
           <div>
             <Logo tone="dark" />
             <p className="mt-6 max-w-xs text-[14px] leading-relaxed text-white/50">
-              Venda de licenças Microsoft e antivírus corporativo, com consultoria em
-              licenciamento para empresas que precisam decidir com clareza.
+              Vendemos licenças Microsoft e antivírus corporativo com consultoria em
+              licenciamento, para empresas que precisam decidir com clareza.
             </p>
             <a
               href={contact.whatsappHref}

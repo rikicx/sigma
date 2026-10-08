@@ -18,8 +18,8 @@ export function ProblemSection() {
           />
           <Reveal delay={120}>
             <p className="max-w-sm text-pretty text-[15px] leading-relaxed text-graphite lg:text-right">
-              A Sigma Brasil traduz cenários técnicos e comerciais em decisões simples,
-              seguras e economicamente inteligentes.
+              Traduzimos cenário técnico e proposta comercial em uma decisão simples:
+              o que contratar, quanto custa e o que acontece se não for assim.
             </p>
           </Reveal>
         </div>

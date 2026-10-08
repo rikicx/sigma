@@ -28,8 +28,8 @@ const cities = [
     alt: "Cristo Redentor no alto do Corcovado, com a cidade do Rio de Janeiro e o mar ao fundo",
     width: 800,
     height: 1200,
-    // o Cristo fica no terço superior da foto
-    focus: "object-[50%_30%]",
+    // janela mais baixa na foto: o Cristo sobe no quadro e a cidade entra embaixo
+    focus: "object-[50%_52%]",
   },
   {
     name: "São Paulo",
@@ -66,8 +66,8 @@ export function CitiesSection() {
           </Reveal>
           <Reveal delay={140}>
             <p className="mt-6 text-pretty text-[15.5px] leading-relaxed text-graphite">
-              Duas praças, o mesmo time e o mesmo critério técnico para dimensionar
-              licenças, antivírus e renovações.
+              Atendemos empresas nas duas cidades com o mesmo time e o mesmo critério
+              técnico para dimensionar licenças, antivírus e renovações.
             </p>
           </Reveal>
         </div>

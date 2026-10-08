@@ -16,7 +16,7 @@ export default function Antivirus() {
       <PageHero
         eyebrow="Antivírus"
         title="Antivírus Kaspersky para estações e servidores."
-        description="Proteção licenciada pelo número real de dispositivos da empresa, com renovação acompanhada para o ambiente não ficar descoberto."
+        description="Licenciamos pelo número real de dispositivos da empresa e acompanhamos a renovação, para o ambiente nunca ficar descoberto sem ninguém perceber."
         crumbs={[{ label: "Antivírus" }]}
       />
       <AntivirusSection />
