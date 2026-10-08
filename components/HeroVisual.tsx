@@ -91,7 +91,7 @@ export function HeroVisual({ tone = "light" }: { tone?: Tone }) {
     <div
       ref={wrapRef}
       aria-hidden="true"
-      className="pointer-events-none relative aspect-square w-full max-w-[360px] [--px:0] [--py:0] [--sy:0] sm:max-w-[520px]"
+      className="pointer-events-none relative aspect-square w-full max-w-[250px] [--px:0] [--py:0] [--sy:0] sm:max-w-[330px] lg:max-w-[520px]"
     >
       <div
         className="absolute inset-[8%] rounded-full border"

@@ -9,9 +9,9 @@ import { heroIndicators, routes } from "@/lib/site";
 /** Primeira dobra da home: clara, curta e com a oferta explícita. */
 export function Hero() {
   return (
-    <section className="relative flex min-h-[92vh] flex-col justify-center overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20">
+    <section className="relative flex flex-col justify-center overflow-hidden pt-28 pb-14 lg:min-h-[92vh] lg:pt-32 lg:pb-20">
       <Container className="relative">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
           <div className="max-w-2xl">
             <Reveal>
               <div className="flex items-center gap-3">
@@ -31,7 +31,7 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={150}>
-              <p className="mt-7 max-w-xl text-pretty text-base leading-relaxed text-graphite md:text-lg">
+              <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-graphite lg:mt-7 lg:text-lg">
                 Fazemos a conta antes da compra: quantos usuários, quantos
                 dispositivos, quais servidores. Você recebe as opções, o custo de cada
                 uma e a recomendação — em português, não em contrato.
@@ -39,7 +39,7 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={220}>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-9">
                 <Link
                   href={routes.contato}
                   className="group inline-flex items-center justify-center gap-2.5 bg-accent px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-accent-deep"
@@ -58,7 +58,9 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <Parallax speed={-70} minWidth={1024}>
+          {/* no celular a peça só empurrava o conteúdo para baixo e competia com
+              o mapa do fundo; a partir do desktop ela volta */}
+          <Parallax speed={-70} minWidth={1024} className="hidden lg:block">
             <Reveal delay={180} className="flex justify-center lg:justify-end">
               <HeroVisual tone="light" />
             </Reveal>
@@ -67,11 +69,11 @@ export function Hero() {
 
         <Parallax speed={26} minWidth={768}>
           <Reveal delay={280}>
-            <ul className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-10 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
             {heroIndicators.map((item, index) => (
               <li
                 key={item}
-                className="flex items-center gap-3 bg-paper-pure px-6 py-5"
+                className="flex items-center gap-3 bg-paper-pure px-5 py-4 lg:px-6 lg:py-5"
               >
                 <span className="font-mono text-[10px] text-accent">
                   {String(index + 1).padStart(2, "0")}

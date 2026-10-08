@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Container } from "./ui/Container";
 import { Logo } from "./ui/Logo";
 import { ArrowRight } from "./ui/icons";
-import { nav, routes } from "@/lib/site";
+import { contact, nav, routes } from "@/lib/site";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,12 +33,23 @@ export function Header() {
 
   const close = useCallback(() => setOpen(false), []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ${
-        scrolled || open
-          ? "border-b border-line bg-paper shadow-[0_1px_0_0_rgba(8,9,10,0.03),0_8px_24px_-18px_rgba(8,9,10,0.25)]"
-          : "border-b border-transparent bg-transparent"
+        open
+          ? "border-b border-transparent bg-transparent"
+          : scrolled
+            ? "border-b border-line bg-paper shadow-[0_1px_0_0_rgba(11,15,28,0.03),0_8px_24px_-18px_rgba(11,15,28,0.25)]"
+            : "border-b border-transparent bg-transparent"
       }`}
     >
       <Container>
@@ -48,7 +59,7 @@ export function Header() {
           }`}
         >
           <Link href={routes.home} onClick={close} aria-label="Sigma Brasil — início">
-            <Logo />
+            <Logo tone={open ? "dark" : "light"} />
           </Link>
 
           <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
@@ -89,7 +100,9 @@ export function Header() {
               aria-expanded={open}
               aria-controls="menu-mobile"
               aria-label={open ? "Fechar menu" : "Abrir menu"}
-              className="flex h-11 w-11 items-center justify-center text-ink lg:hidden"
+              className={`relative z-50 flex h-11 w-11 items-center justify-center transition-colors duration-300 lg:hidden ${
+                open ? "text-white" : "text-ink"
+              }`}
             >
               <span className="relative block h-3 w-5">
                 <span
@@ -108,34 +121,79 @@ export function Header() {
         </div>
       </Container>
 
+      {/* Menu mobile: tela cheia em azul da marca, itens entrando um a um */}
       <div
         id="menu-mobile"
-        className={`absolute inset-x-0 top-full origin-top overflow-hidden border-b border-line bg-paper transition-all duration-500 lg:hidden ${
-          open ? "max-h-[32rem] opacity-100" : "pointer-events-none max-h-0 opacity-0"
+        aria-hidden={!open}
+        className={`fixed inset-0 z-40 lg:hidden ${
+          open ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
-        <Container>
-          <nav aria-label="Principal — mobile" className="flex flex-col py-3">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={close}
-                className="flex items-center justify-between border-b border-line/70 py-4 text-lg font-medium tracking-[-0.02em] text-ink"
-              >
-                {item.label}
-                <ArrowRight className="h-4 w-4 text-accent" />
-              </Link>
-            ))}
+        <div
+          className={`absolute inset-0 bg-accent transition-opacity duration-500 ease-out ${
+            open ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <div
+          aria-hidden="true"
+          className={`grid-technical-dark absolute inset-0 opacity-25 transition-opacity duration-700 ${
+            open ? "opacity-25" : "opacity-0"
+          }`}
+        />
+
+        <Container className="relative flex h-full flex-col justify-between pt-28 pb-10">
+          <nav aria-label="Principal — mobile">
+            <ul>
+              {nav.map((item, index) => (
+                <li
+                  key={item.href}
+                  style={{ transitionDelay: open ? `${140 + index * 70}ms` : "0ms" }}
+                  className={`border-b border-white/10 transition-all duration-500 ease-out ${
+                    open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                  }`}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={close}
+                    className="group flex items-center gap-5 py-5"
+                  >
+                    <span className="font-mono text-[11px] tracking-[0.18em] text-white/35">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="flex-1 text-[27px] font-medium leading-none tracking-[-0.03em] text-white">
+                      {item.label}
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-brand-red-bright transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div
+            style={{ transitionDelay: open ? `${160 + nav.length * 70}ms` : "0ms" }}
+            className={`transition-all duration-500 ease-out ${
+              open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+          >
             <Link
               href={routes.contato}
               onClick={close}
-              className="mt-5 mb-6 inline-flex items-center justify-center gap-2 bg-accent px-5 py-4 text-sm font-medium text-white"
+              className="flex items-center justify-center gap-2 bg-white px-5 py-4 text-sm font-medium text-accent transition-colors hover:bg-brand-red hover:text-white"
             >
               Solicitar orçamento
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
-          </nav>
+
+            <div className="mt-7 flex flex-col gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-white/45">
+              <a href={`mailto:${contact.emailVendas}`} className="transition-colors hover:text-white">
+                {contact.emailVendas}
+              </a>
+              <a href={contact.phoneHref} className="transition-colors hover:text-white">
+                {contact.phone}
+              </a>
+            </div>
+          </div>
         </Container>
       </div>
     </header>
