@@ -47,7 +47,9 @@
   --animate-pulse-node: pulse-node 4s ease-in-out infinite;
   --animate-dash: dash 9s linear infinite;
   --animate-scan: scan 7s linear infinite;
-  --animate-trace: trace 18s linear infinite;
+  --animate-trace:
+    trace-intro 2.6s cubic-bezier(0.22, 1, 0.36, 1) both,
+    trace 18s linear 2.6s infinite;
 }
 
 @keyframes drift {
@@ -85,6 +87,20 @@
   }
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes trace-intro {
+  from {
+    stroke-dashoffset: 2000;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
   }
 }
 
@@ -140,7 +156,16 @@ body {
 @utility display-xl {
   font-size: clamp(2.2rem, 4.4vw, 3.7rem);
   line-height: 0.98;
-  letter-spacing: -0.042em;
+  letter-spacing: -0.038em;
+  font-weight: 500;
+}
+
+/* título do hero: com a linha cheia disponível, a escala pode crescer.
+   Teto em 5,2rem e tracking em -0,038em, dentro dos limites de legibilidade. */
+@utility display-hero {
+  font-size: clamp(2.35rem, 6.1vw, 5.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.038em;
   font-weight: 500;
 }
 
@@ -206,6 +231,25 @@ body {
   );
 }
 
+/* ---------- Entrada do hero (uma vez, no load) ---------- */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+html[data-js] .hero-rise {
+  opacity: 0;
+  animation: hero-rise 1s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0ms) both;
+}
+
 /* ---------- Scroll reveal ---------- */
 html[data-js] .reveal {
   opacity: 0;
@@ -241,9 +285,11 @@ html[data-js] .reveal[data-visible="true"] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  html[data-js] .reveal {
+  html[data-js] .reveal,
+  html[data-js] .hero-rise {
     opacity: 1;
     transform: none;
     filter: none;
+    animation: none;
   }
 }
