@@ -38,8 +38,9 @@
   /* ---- Tipografia ---- */
   --font-sans: var(--font-display), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: var(--font-technical), ui-monospace, SFMono-Regular, Menlo,
-    monospace;
+  /* os rótulos usam a mesma família, em caixa alta: a monoespaçada deixava
+     tudo com cara de terminal */
+  --font-mono: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 
   /* ---- Animações ---- */
   --animate-drift: drift 26s ease-in-out infinite;
@@ -139,14 +140,14 @@ body {
 @utility display-xl {
   font-size: clamp(2.2rem, 4.4vw, 3.7rem);
   line-height: 0.98;
-  letter-spacing: -0.038em;
+  letter-spacing: -0.042em;
   font-weight: 500;
 }
 
 @utility display-lg {
   font-size: clamp(1.95rem, 3.4vw, 2.9rem);
   line-height: 1.04;
-  letter-spacing: -0.032em;
+  letter-spacing: -0.036em;
   font-weight: 500;
 }
 
@@ -158,11 +159,12 @@ body {
 }
 
 @utility eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Malha técnica: base visual do site inteiro */

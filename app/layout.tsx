@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -8,12 +8,16 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { LiquidBackground } from "@/components/LiquidBackground";
 import { site, contact } from "@/lib/site";
 
-const display = Geist({ subsets: ["latin"], display: "swap", variable: "--font-display" });
-const technical = Geist_Mono({
+/**
+ * Archivo: grotesca de uso institucional, com acentuação latina bem resolvida.
+ * Serve tanto para os títulos quanto para os rótulos em caixa alta — o site
+ * deixou de usar uma monoespaçada, que dava ar de terminal.
+ */
+const archivo = Archivo({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500"],
-  variable: "--font-technical",
+  variable: "--font-display",
+  axes: ["wdth"],
 });
 
 export const metadata: Metadata = {
@@ -91,7 +95,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       suppressHydrationWarning
-      className={`${display.variable} ${technical.variable}`}
+      className={archivo.variable}
     >
       <body className="antialiased">
         {/* marca que o JS está ativo: sem isso o conteúdo nasce visível, sem depender de hidratação */}
