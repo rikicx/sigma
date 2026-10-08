@@ -11,35 +11,43 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] flex-col overflow-hidden pt-28 pb-10 lg:min-h-[92vh] lg:justify-center lg:pt-32 lg:pb-20">
       <Container className="relative flex flex-1 flex-col">
-        <div className="grid flex-1 items-center gap-8 lg:flex-none lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-          <div className="flex max-w-2xl flex-col justify-center lg:block">
-            <Reveal>
-              <div className="flex items-center gap-3">
-                <span aria-hidden="true" className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-50" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-red" />
-                </span>
-                <span className="eyebrow text-accent">Licenças · Antivírus · Consultoria</span>
-              </div>
-            </Reveal>
+        <div className="grid flex-1 items-stretch gap-8 lg:flex-none lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
+          <div className="flex max-w-2xl flex-col lg:block">
+            {/* texto centralizado no espaço livre, botões ancorados na base */}
+            <div className="flex flex-1 flex-col justify-center lg:block">
+              <Reveal>
+                <div className="flex items-center gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="relative flex h-1.5 w-1.5"
+                  >
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-50" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-red" />
+                  </span>
+                  <span className="eyebrow text-accent">
+                    Licenças · Antivírus · Consultoria
+                  </span>
+                </div>
+              </Reveal>
 
-            <Reveal delay={80}>
-              <h1 className="display-xl mt-7 text-balance text-ink">
-                Licenças Microsoft e antivírus para a sua empresa, sem pagar
-                pelo que não se usa.
-              </h1>
-            </Reveal>
+              <Reveal delay={80}>
+                <h1 className="display-xl mt-7 text-balance text-ink">
+                  Licenças Microsoft e antivírus para a sua empresa, sem pagar
+                  pelo que não se usa.
+                </h1>
+              </Reveal>
 
-            <Reveal delay={150}>
-              <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-graphite lg:mt-7 lg:text-lg">
-                Fazemos a conta antes da compra: quantos usuários, quantos
-                dispositivos, quais servidores. Você recebe as opções, o custo de cada
-                uma e a recomendação — em português, não em contrato.
-              </p>
-            </Reveal>
+              <Reveal delay={150}>
+                <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-graphite lg:mt-7 lg:text-lg">
+                  Fazemos a conta antes da compra: quantos usuários, quantos
+                  dispositivos, quais servidores. Você recebe as opções, o custo
+                  de cada uma e a recomendação — em português, não em contrato.
+                </p>
+              </Reveal>
+            </div>
 
             <Reveal delay={220}>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-9">
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-9">
                 <Link
                   href={routes.contato}
                   className="group inline-flex items-center justify-center gap-2.5 bg-accent px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-accent-deep"
@@ -70,19 +78,19 @@ export function Hero() {
         <Parallax speed={26} minWidth={768} className="hidden lg:block">
           <Reveal delay={280}>
             <ul className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-            {heroIndicators.map((item, index) => (
-              <li
-                key={item}
-                className="flex items-center gap-3 bg-paper-pure px-5 py-4 lg:px-6 lg:py-5"
-              >
-                <span className="font-mono text-[10px] text-accent">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="text-[14px] font-medium tracking-[-0.01em] text-ink">
-                  {item}
-                </span>
-              </li>
-            ))}
+              {heroIndicators.map((item, index) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 bg-paper-pure px-5 py-4 lg:px-6 lg:py-5"
+                >
+                  <span className="font-mono text-[10px] text-accent">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[14px] font-medium tracking-[-0.01em] text-ink">
+                    {item}
+                  </span>
+                </li>
+              ))}
             </ul>
           </Reveal>
         </Parallax>
