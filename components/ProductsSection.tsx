@@ -21,9 +21,9 @@ export function ProductsSection() {
               <Reveal key={product.id} delay={index * 80}>
                 <article
                   id={product.id}
-                  className="flex h-full flex-col border border-line bg-paper-pure p-8 transition-colors duration-500 hover:border-ink/15"
+                  className="flex h-full flex-col rounded-lg border border-line bg-paper-pure p-8 transition-colors duration-500 hover:border-ink/15"
                 >
-                  <span className="flex h-12 w-12 items-center justify-center border border-line text-graphite">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-md border border-line text-graphite">
                     <Icon className="h-6 w-6" />
                   </span>
                   <h3 className="mt-8 text-[20px] font-medium leading-snug tracking-[-0.022em] text-ink">

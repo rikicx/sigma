@@ -46,7 +46,7 @@ export function OffersSection() {
                 <Reveal delay={index * 90}>
                   <Link
                     href={offer.href}
-                    className="group relative flex h-full flex-col overflow-hidden border border-line bg-paper-pure p-8 transition-all duration-500 hover:-translate-y-1 hover:border-ink/15 hover:shadow-[0_24px_60px_-34px_rgba(11,15,28,0.35)] md:p-10"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-line bg-paper-pure p-8 transition-all duration-500 hover:-translate-y-1 hover:border-ink/15 hover:shadow-[0_24px_60px_-34px_rgba(11,15,28,0.35)] md:p-10"
                   >
                     <span
                       aria-hidden="true"
@@ -54,7 +54,7 @@ export function OffersSection() {
                     />
                     <div className="flex items-start justify-between">
                       <span
-                        className={`flex h-12 w-12 items-center justify-center border transition-colors duration-500 ${mark}`}
+                        className={`flex h-12 w-12 items-center justify-center rounded-md border transition-colors duration-500 ${mark}`}
                       >
                         <Icon className="h-6 w-6" />
                       </span>

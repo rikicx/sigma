@@ -73,7 +73,7 @@ export function CitiesSection() {
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {cities.map((city, index) => (
             <Reveal key={city.name} delay={index * 110}>
-              <article className="group relative overflow-hidden bg-ink">
+              <article className="group relative overflow-hidden rounded-lg bg-ink">
                 {/* altura em vh com teto: a moldura nunca passa de meia tela,
                     independentemente do tamanho do monitor */}
                 <div className="relative h-[clamp(260px,48vh,460px)] overflow-hidden">

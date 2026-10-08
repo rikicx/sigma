@@ -21,7 +21,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar com a Sigma Brasil no WhatsApp"
-      className={`group fixed bottom-6 right-6 z-40 flex items-center bg-accent text-white shadow-[0_18px_40px_-16px_rgba(8,9,10,0.55)] transition-all duration-500 hover:bg-accent-deep md:bottom-8 md:right-8 ${
+      className={`group fixed bottom-6 right-6 z-40 flex items-center rounded-lg bg-accent text-white shadow-[0_18px_40px_-16px_rgba(8,9,10,0.55)] transition-all duration-500 hover:bg-accent-deep md:bottom-8 md:right-8 ${
         visible
           ? "pointer-events-auto translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"

@@ -58,7 +58,7 @@ export function ConsultiveStrip() {
           </Parallax>
 
           {/* bloco único em azul da marca; a fumaça vermelha segue o cursor */}
-          <ul className="grid divide-y divide-white/10 overflow-hidden bg-accent">
+          <ul className="grid divide-y divide-white/10 overflow-hidden rounded-lg bg-accent">
             {highlights.map((item, index) => (
               <Reveal key={item.title} delay={index * 80}>
                 <HighlightItem item={item} />
@@ -97,7 +97,7 @@ function HighlightItem({ item }: { item: (typeof highlights)[number] }) {
       />
 
       <div className="relative flex items-start gap-5">
-        <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center border border-white/20 text-white/80 transition-colors duration-500 group-hover:border-white/50 group-hover:text-white">
+        <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-white/20 text-white/80 transition-colors duration-500 group-hover:border-white/50 group-hover:text-white">
           <Icon className="h-5 w-5" />
         </span>
         <div>

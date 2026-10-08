@@ -24,7 +24,7 @@ export function ComparisonSection() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-2 lg:gap-8">
           <Reveal>
-            <article className="h-full border border-line bg-paper-pure/70 p-8 md:p-10">
+            <article className="h-full rounded-lg border border-line bg-paper-pure/70 p-8 md:p-10">
               <header className="flex items-center justify-between border-b border-line pb-6">
                 <h3 className="text-[18px] font-medium tracking-[-0.02em] text-graphite">
                   Comprar software sem consultoria
@@ -34,7 +34,7 @@ export function ComparisonSection() {
               <ul className="mt-8 space-y-5">
                 {comparison.without.map((item) => (
                   <li key={item} className="flex items-start gap-4">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-line-strong text-mute">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border border-line-strong text-mute">
                       <CrossMark className="h-3 w-3" />
                     </span>
                     <span className="text-[15px] leading-relaxed text-mute">
@@ -47,7 +47,7 @@ export function ComparisonSection() {
           </Reveal>
 
           <Reveal delay={120}>
-            <article className="relative h-full overflow-hidden bg-ink p-8 md:p-10">
+            <article className="relative h-full overflow-hidden rounded-lg bg-ink p-8 md:p-10">
               <div
                 className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-accent/20 blur-[90px]"
                 aria-hidden="true"
@@ -64,7 +64,7 @@ export function ComparisonSection() {
                 <ul className="mt-8 space-y-5">
                   {comparison.with.map((item) => (
                     <li key={item} className="flex items-start gap-4">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center bg-brand-red text-white">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-sm bg-brand-red text-white">
                         <CheckMark className="h-3 w-3" />
                       </span>
                       <span className="text-[15px] leading-relaxed text-white/85">

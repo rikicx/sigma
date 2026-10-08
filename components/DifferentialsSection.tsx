@@ -24,7 +24,7 @@ export function DifferentialsSection() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           <Reveal className="lg:col-span-1">
-            <article className="relative flex h-full flex-col justify-between overflow-hidden border border-line bg-paper-pure p-9 lg:p-10">
+            <article className="relative flex h-full flex-col justify-between overflow-hidden rounded-lg border border-line bg-paper-pure p-9 lg:p-10">
               <div className="relative">
                 <h3 className="display-md text-balance text-ink">
                   {featured.title}
@@ -48,7 +48,7 @@ export function DifferentialsSection() {
             </article>
           </Reveal>
 
-          <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:col-span-2">
+          <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:col-span-2 rounded-lg overflow-hidden">
             {rest.map((item, index) => (
               <Reveal key={item.title} delay={index * 60}>
                 <article className="group h-full bg-paper-pure p-8 transition-colors duration-500 hover:bg-white">

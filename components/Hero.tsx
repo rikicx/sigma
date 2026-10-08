@@ -50,14 +50,14 @@ export function Hero() {
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-9">
                 <Link
                   href={routes.contato}
-                  className="group inline-flex items-center justify-center gap-2.5 bg-accent px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-accent-deep"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-accent px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-accent-deep"
                 >
                   Solicitar orçamento
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href={routes.licencas}
-                  className="group inline-flex items-center justify-center gap-2.5 border border-line-strong px-7 py-4 text-sm font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:border-ink hover:bg-paper"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-line-strong px-7 py-4 text-sm font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:border-ink hover:bg-paper"
                 >
                   Ver licenças
                   <ArrowRight className="h-4 w-4 text-mute transition-all duration-300 group-hover:translate-x-1 group-hover:text-ink" />
@@ -77,7 +77,7 @@ export function Hero() {
 
         <Parallax speed={26} minWidth={768} className="hidden lg:block">
           <Reveal delay={280}>
-            <ul className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4 rounded-lg overflow-hidden">
               {heroIndicators.map((item) => (
                 <li
                   key={item}

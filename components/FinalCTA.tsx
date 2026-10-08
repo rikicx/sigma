@@ -37,7 +37,7 @@ export function FinalCTA({
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href={routes.contato}
-                className="group inline-flex w-full items-center justify-center gap-2.5 bg-white px-7 py-4 text-sm font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:bg-brand-red hover:text-white sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2.5 rounded-lg bg-white px-7 py-4 text-sm font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:bg-brand-red hover:text-white sm:w-auto"
               >
                 Solicitar orçamento
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -46,7 +46,7 @@ export function FinalCTA({
                 href={contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2.5 border border-white/15 px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:border-white/40 hover:bg-white/5 sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2.5 rounded-lg border border-white/15 px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:border-white/40 hover:bg-white/5 sm:w-auto"
               >
                 <WhatsAppIcon className="h-4 w-4 text-accent-bright" />
                 Falar no WhatsApp

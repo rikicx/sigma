@@ -42,7 +42,7 @@ export function ContactChannels() {
           Canais de contato
         </h2>
 
-        <div className="grid gap-px border border-line bg-line sm:grid-cols-2">
+        <div className="grid gap-px border border-line bg-line sm:grid-cols-2 rounded-lg overflow-hidden">
           {channels.map((channel, index) => (
             <Reveal key={channel.label} delay={index * 70}>
               {/* a célula inteira é o alvo: no celular o link sozinho tinha
@@ -72,7 +72,7 @@ export function ContactChannels() {
         </div>
 
         <Reveal delay={150}>
-          <div className="mt-6 border border-line bg-paper-pure px-8 py-7">
+          <div className="mt-6 rounded-lg border border-line bg-paper-pure px-8 py-7">
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-mute">
               Endereço
             </span>

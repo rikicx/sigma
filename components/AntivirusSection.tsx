@@ -16,7 +16,7 @@ export function AntivirusSection() {
           description="A conta do antivírus é por dispositivo — e quase sempre está errada: sobra licença de máquina aposentada e falta cobertura em servidor novo. Conferimos isso com você antes da renovação, não depois."
         />
 
-        <div className="mt-16 grid gap-px border border-line bg-line md:grid-cols-3">
+        <div className="mt-16 grid gap-px border border-line bg-line md:grid-cols-3 rounded-lg overflow-hidden">
           {antivirusTopics.map((topic, index) => (
             <Reveal key={topic.id} delay={index * 80}>
               <article className="h-full bg-paper-pure p-8 md:p-10">

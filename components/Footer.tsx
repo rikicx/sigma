@@ -27,7 +27,7 @@ export function Footer() {
               href={contact.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center gap-2 border border-white/15 px-4 py-2.5 text-[13px] font-medium text-white transition-colors hover:border-brand-red-bright/60 hover:bg-white/5"
+              className="mt-7 inline-flex items-center gap-2 rounded-lg border border-white/15 px-4 py-2.5 text-[13px] font-medium text-white transition-colors hover:border-brand-red-bright/60 hover:bg-white/5"
             >
               <WhatsAppIcon className="h-3.5 w-3.5 text-accent-bright" />
               Atendimento no WhatsApp

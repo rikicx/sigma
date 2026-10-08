@@ -38,7 +38,7 @@ export function AboutSection() {
           </Reveal>
 
           <Reveal delay={120}>
-            <dl className="grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-1">
+            <dl className="grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-1 rounded-lg overflow-hidden">
               {pillars.map((pillar) => (
                 <div key={pillar.label} className="bg-paper-pure px-7 py-6">
                   <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-mute">

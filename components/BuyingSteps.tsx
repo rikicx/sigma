@@ -13,7 +13,7 @@ export function BuyingSteps() {
           description="Sem formulário longo e sem catálogo para o cliente decifrar sozinho."
         />
 
-        <ol className="mt-14 grid gap-px border border-line bg-line md:grid-cols-3">
+        <ol className="mt-14 grid gap-px border border-line bg-line md:grid-cols-3 rounded-lg overflow-hidden">
           {buyingSteps.map((step, index) => (
             <Reveal key={step.step} delay={index * 90}>
               <li className="h-full bg-paper-pure p-8 md:p-10">
