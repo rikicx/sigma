@@ -31,7 +31,9 @@
      Um grau mais fechado que o vermelho da arte (#d92b1f) para passar em
      contraste sobre o off-white: 5,1:1 em texto e 5,6:1 com branco por cima. */
   --color-brand-red: #c9241a;
-  --color-brand-red-bright: #ff5f52;
+  /* vermelho para fundo escuro: #ff5f52 puxava para laranja. Este mantém a
+     família do vermelho da marca e dá 4,9:1 sobre o ink. */
+  --color-brand-red-bright: #ef3b30;
 
   /* ---- Tipografia ---- */
   --font-sans: var(--font-display), ui-sans-serif, system-ui, -apple-system,
