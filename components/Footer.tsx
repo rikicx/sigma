@@ -17,7 +17,7 @@ export function Footer() {
       <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1.3fr]">
           <div>
-            <Logo tone="dark" />
+            <Logo tone="dark" className="h-9 w-auto" />
             <p className="mt-6 max-w-xs text-[14px] leading-relaxed text-white/50">
               Vendemos licenças Microsoft e antivírus corporativo com
               consultoria em licenciamento, para empresas que precisam decidir

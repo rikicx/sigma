@@ -61,11 +61,18 @@ Os pontos que precisam de validação do cliente estão marcados com `⚠️ TRO
 | Domínio | `https://sigmario.com.br` — ver seção "Domínio e redirecionamentos 301" |
 | Logo | **ainda não aplicado** — ver `components/ui/Logo.tsx` |
 
-### Aplicar o logo
+### Logo
 
-> **A marca no site é um placeholder.** O que aparece hoje é texto
-> ("Sigma" em azul + "Brasil" em vermelho), não um arquivo de logo. Procure por
-> `data-placeholder="logo"` para achar todos os pontos de uso.
+O logo vetorial está aplicado em `components/ui/Logo.tsx`, inline, com duas
+variantes de cor: `light` (azul #062d58 + vermelho #e70012) e `dark` (branco +
+vermelho #ef3b30, porque o azul do arquivo some sobre fundo escuro).
+
+Na chegada da home ele se desenha: o contorno de cada forma é riscado com
+`stroke-dasharray` e o preenchimento entra atrás. Acontece uma vez por
+carregamento, só na home, e é desligado em `prefers-reduced-motion`.
+
+O arquivo original está em `public/logo-sigma-brasil.svg`; o favicon
+(`app/icon.svg`) usa o bloco vermelho do M.
 
 A marca aparece hoje só como assinatura tipográfica ("Sigma Brasil" + subtítulo).
 Para aplicar o arquivo definitivo, coloque o logo em `public/logo.svg` (e, se

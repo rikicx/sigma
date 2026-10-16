@@ -8,10 +8,20 @@ import { Logo } from "./ui/Logo";
 import { ArrowRight } from "./ui/icons";
 import { contact, nav, routes } from "@/lib/site";
 
+/** O logo se desenha uma vez por carregamento, e só na home. */
+let logoJaDesenhou = false;
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [desenhaLogo, setDesenhaLogo] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (logoJaDesenhou || window.location.pathname !== "/") return;
+    logoJaDesenhou = true;
+    setDesenhaLogo(true);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -65,7 +75,11 @@ export function Header() {
             aria-label="Sigma Brasil — início"
             className="-my-2 inline-flex py-2"
           >
-            <Logo tone={open ? "dark" : "light"} />
+            <Logo
+              tone={open ? "dark" : "light"}
+              animated={desenhaLogo && !open}
+              className="h-8 w-auto md:h-9"
+            />
           </Link>
 
           <nav
