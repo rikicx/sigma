@@ -43,7 +43,11 @@ export function Hero() {
       <div aria-hidden="true" className="min-h-24 flex-[1_1_0px]" />
 
       <Container className="relative">
-        <div>
+        {/* no desktop o bloco ocupa metade da largura (pedido do cliente) e o
+            título escala para que "Sigma Brasil." preencha essa metade:
+            a coluna é (contêiner − 80px de respiro) / 2, e a linha mede
+            ~5,5× o corpo da fonte — daí o /11 */}
+        <div className="lg:w-1/2">
           <div>
             <div className="hero-rise flex items-center gap-3" style={{ "--d": "0ms" } as React.CSSProperties}>
               <span aria-hidden="true" className="relative flex h-1.5 w-1.5">
@@ -57,13 +61,15 @@ export function Hero() {
                 no h1 ela seria calculada sobre o corpo de 16px */}
             <h1 className="mt-7 text-balance text-white">
               <span
-                className="hero-rise display-hero block max-w-[15ch]"
+                className="hero-rise display-hero block max-w-[15ch] lg:max-w-none lg:text-[clamp(5rem,calc((min(100vw,1280px)-80px)/11),6.8rem)]"
                 style={{ "--d": "90ms" } as React.CSSProperties}
               >
-                Somos a Sigma Brasil.
+                {/* quebra fixa: a linha de baixo é a mais longa e define a largura */}
+                Somos a <br />
+                Sigma Brasil.
               </span>
               <span
-                className="hero-rise mt-4 block max-w-[26ch] text-[1.15rem] font-normal leading-snug tracking-[-0.015em] text-white/85 lg:mt-5 lg:text-[1.6rem]"
+                className="hero-rise mt-4 block max-w-[26ch] lg:max-w-none text-[1.15rem] font-normal leading-snug tracking-[-0.015em] text-white/85 lg:mt-5 lg:text-[1.6rem]"
                 style={{ "--d": "260ms" } as React.CSSProperties}
               >
                 Licenciamento de software e consultoria para empresas.
@@ -71,7 +77,7 @@ export function Hero() {
             </h1>
 
             <p
-              className="hero-rise mt-7 max-w-[46ch] text-pretty text-base leading-relaxed text-white/80 lg:mt-8 lg:text-[17px]"
+              className="hero-rise mt-7 max-w-[46ch] lg:max-w-none text-pretty text-base leading-relaxed text-white/80 lg:mt-8 lg:text-[17px]"
               style={{ "--d": "380ms" } as React.CSSProperties}
             >
               Vendemos licenças Microsoft e antivírus Kaspersky, e tratamos cada

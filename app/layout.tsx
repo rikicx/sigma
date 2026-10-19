@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { LiquidBackground } from "@/components/LiquidBackground";
+import { Intro } from "@/components/Intro";
 import { site, contact } from "@/lib/site";
 
 /**
@@ -99,9 +100,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning className={archivo.variable}>
       <body className="antialiased">
-        {/* marca que o JS está ativo: sem isso o conteúdo nasce visível, sem depender de hidratação */}
+        {/* marca que o JS está ativo: sem isso o conteúdo nasce visível, sem depender de hidratação.
+            Também decide, antes da primeira pintura, se a abertura roda (1ª visita da sessão,
+            sem reduced-motion) — assim o overlay nunca pisca para quem já viu. */}
         <Script id="js-flag" strategy="beforeInteractive">
-          {`document.documentElement.dataset.js="1"`}
+          {`(function(){var h=document.documentElement;h.dataset.js="1";try{if(sessionStorage.getItem("sigma:intro")||matchMedia("(prefers-reduced-motion: reduce)").matches)return;h.dataset.intro="1"}catch(e){}})()`}
         </Script>
         <a
           href="#conteudo"
@@ -109,6 +112,7 @@ export default function RootLayout({
         >
           Pular para o conteúdo
         </a>
+        <Intro />
         <LiquidBackground />
         <Header />
         <main id="conteudo">{children}</main>

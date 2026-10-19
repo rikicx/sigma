@@ -86,11 +86,14 @@ const CORES = {
 export function Logo({
   tone = "light",
   animated = false,
+  step = 85,
   className = "h-8 w-auto",
 }: {
   tone?: Tone;
   /** Risca o contorno e preenche depois. Só na chegada da home. */
   animated?: boolean;
+  /** intervalo entre o início de cada forma no desenho, em ms */
+  step?: number;
   className?: string;
 }) {
   const cor = CORES[tone];
@@ -113,7 +116,7 @@ export function Logo({
             stroke={c}
             fillRule="evenodd"
             pathLength={1}
-            style={{ "--d": `${p.order * 85}ms` } as React.CSSProperties}
+            style={{ "--d": `${p.order * step}ms` } as React.CSSProperties}
           />
         );
       })}

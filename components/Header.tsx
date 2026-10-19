@@ -18,7 +18,13 @@ export function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (logoJaDesenhou || window.location.pathname !== "/") return;
+    // com a abertura rodando, quem desenha o logo é ela
+    if (
+      logoJaDesenhou ||
+      window.location.pathname !== "/" ||
+      document.documentElement.dataset.intro
+    )
+      return;
     logoJaDesenhou = true;
     setDesenhaLogo(true);
   }, []);
