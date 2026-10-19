@@ -1,51 +1,61 @@
 import Link from "next/link";
 import { Container } from "./ui/Container";
-import { Reveal } from "./ui/Reveal";
 import { Parallax } from "./ui/Parallax";
-import { HeroVisual } from "./HeroVisual";
+import { HeroVideo } from "./HeroVideo";
 import { ArrowRight, WhatsAppIcon } from "./ui/icons";
 import { contact, heroIndicators, routes } from "@/lib/site";
 
 /**
  * Primeira dobra da home.
  *
- * O título deixou de dividir a linha com a peça Σ e passou a ocupar a largura
- * cheia: é o que permite a escala grande sem espremer a medida. A peça foi
- * para o canto direito, atrás do conteúdo, e o texto de apoio desceu para uma
- * coluna estreita abaixo do título.
- *
  * A abertura apresenta a empresa — quem é a Sigma Brasil e como ela trabalha.
  * Os produtos ficam para as seções seguintes (feedback do cliente, 19/10/2026).
+ *
+ * Fundo em vídeo (pessoas trabalhando, servidores) sob um degradê do azul para
+ * o vermelho da marca, com o texto em branco. O texto fica à esquerda, onde o
+ * degradê é mais denso, e uma base escura embaixo garante o contraste dos
+ * indicadores em qualquer quadro do vídeo.
  *
  * A entrada é uma sequência só, no primeiro load: título, frase de apoio,
  * botões e indicadores, nessa ordem — ver `hero-rise` no globals.css.
  */
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-hidden pt-28 pb-10 lg:min-h-[92vh] lg:justify-center lg:pt-28 lg:pb-12">
-      {/* a peça fica atrás do conteúdo, encostada na direita.
-          A centragem vertical mora no contêiner e o parallax no filho: os dois
-          escrevem em `transform`, e juntos um apagava o outro. */}
-      <div className="pointer-events-none absolute right-2 top-1/2 hidden w-[400px] -translate-y-1/2 lg:block xl:right-[4%] xl:w-[470px]">
-        <Parallax speed={-60} minWidth={1024}>
-          <HeroVisual tone="light" />
-        </Parallax>
-      </div>
+    <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-accent-deep">
+      <HeroVideo />
+      {/* degradê da marca: azul denso à esquerda, vermelho à direita */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-linear-to-r from-accent-deep/95 via-accent/80 to-brand-red/75"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-linear-to-t from-ink/60 via-transparent to-ink/30"
+      />
 
-      <Container className="relative flex flex-1 flex-col">
-        <div className="flex flex-1 flex-col lg:block">
-          <div className="flex flex-1 flex-col justify-center lg:block">
+      {/* Centragem no viewport: dois espaçadores dividem a sobra por igual,
+          um em cima e outro embaixo. A base é 0px, não 0%: com a seção só
+          com altura mínima, 0% vira "auto" e o de baixo levava a altura dos
+          indicadores a mais. Padding nunca vai no espaçador (somaria à base);
+          fica no conteúdo. O de cima tem a altura mínima do cabeçalho; o de
+          baixo carrega os indicadores e, em tela baixa, cresce até eles
+          caberem — o texto sobe, sem sobreposição. */}
+      <div aria-hidden="true" className="min-h-24 flex-[1_1_0px]" />
+
+      <Container className="relative">
+        <div>
+          <div>
             <div className="hero-rise flex items-center gap-3" style={{ "--d": "0ms" } as React.CSSProperties}>
               <span aria-hidden="true" className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-50" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-red" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red-bright opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-red-bright" />
               </span>
-              <span className="eyebrow text-accent">Quem somos</span>
+              <span className="eyebrow text-white/85">Quem somos</span>
             </div>
 
             {/* a medida fica no elemento que tem o tamanho do display: em ch
                 no h1 ela seria calculada sobre o corpo de 16px */}
-            <h1 className="mt-7 text-balance text-ink">
+            <h1 className="mt-7 text-balance text-white">
               <span
                 className="hero-rise display-hero block max-w-[15ch]"
                 style={{ "--d": "90ms" } as React.CSSProperties}
@@ -53,7 +63,7 @@ export function Hero() {
                 Somos a Sigma Brasil.
               </span>
               <span
-                className="hero-rise mt-4 block max-w-[26ch] text-[1.15rem] font-normal leading-snug tracking-[-0.015em] text-graphite lg:mt-5 lg:text-[1.6rem]"
+                className="hero-rise mt-4 block max-w-[26ch] text-[1.15rem] font-normal leading-snug tracking-[-0.015em] text-white/85 lg:mt-5 lg:text-[1.6rem]"
                 style={{ "--d": "260ms" } as React.CSSProperties}
               >
                 Licenciamento de software e consultoria para empresas.
@@ -61,7 +71,7 @@ export function Hero() {
             </h1>
 
             <p
-              className="hero-rise mt-7 max-w-[46ch] text-pretty text-base leading-relaxed text-graphite lg:mt-8 lg:text-[17px]"
+              className="hero-rise mt-7 max-w-[46ch] text-pretty text-base leading-relaxed text-white/80 lg:mt-8 lg:text-[17px]"
               style={{ "--d": "380ms" } as React.CSSProperties}
             >
               Vendemos licenças Microsoft e antivírus Kaspersky, e tratamos cada
@@ -78,7 +88,7 @@ export function Hero() {
           >
             <Link
               href={routes.contato}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-accent px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-accent-deep"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-white px-7 py-4 text-sm font-medium tracking-[-0.01em] text-accent transition-colors duration-300 hover:bg-brand-red hover:text-white"
             >
               Solicitar orçamento
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -88,33 +98,37 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               data-cta="whatsapp"
-              className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-line-strong bg-white/50 px-7 py-4 text-sm font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:border-ink hover:bg-white"
+              className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/35 bg-white/10 px-7 py-4 text-sm font-medium tracking-[-0.01em] text-white backdrop-blur-sm transition-colors duration-300 hover:border-white hover:bg-white/20"
             >
-              <WhatsAppIcon className="h-4 w-4 text-accent" />
+              <WhatsAppIcon className="h-4 w-4" />
               Falar no WhatsApp
             </a>
           </div>
         </div>
-
-        <Parallax speed={26} minWidth={768} className="hidden lg:block">
-          <ul
-            className="hero-rise mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-4"
-            style={{ "--d": "620ms" } as React.CSSProperties}
-          >
-            {heroIndicators.map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-3 bg-paper-pure px-5 py-4 lg:px-6 lg:py-5"
-              >
-                <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-accent/60" />
-                <span className="text-[14px] font-medium tracking-[-0.01em] text-ink">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </Parallax>
       </Container>
+
+      <div className="relative flex min-h-10 flex-[1_1_0px] flex-col justify-end">
+        <Container className="hidden pt-6 pb-8 lg:block">
+          <Parallax speed={26} minWidth={768}>
+            <ul
+              className="hero-rise grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-white/15 bg-white/15 backdrop-blur-md sm:grid-cols-2 lg:grid-cols-4"
+              style={{ "--d": "620ms" } as React.CSSProperties}
+            >
+              {heroIndicators.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 bg-ink/25 px-5 py-4 lg:px-6 lg:py-5"
+                >
+                  <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-brand-red-bright" />
+                  <span className="text-[14px] font-medium tracking-[-0.01em] text-white">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </Parallax>
+        </Container>
+      </div>
     </section>
   );
 }

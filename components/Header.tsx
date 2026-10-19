@@ -43,6 +43,9 @@ export function Header() {
 
   const close = useCallback(() => setOpen(false), []);
 
+  // na home, antes de rolar, a barra fica sobre o vídeo do hero: tudo em branco
+  const overHero = pathname === routes.home && !scrolled && !open;
+
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
@@ -76,7 +79,7 @@ export function Header() {
             className="-my-2 inline-flex py-2"
           >
             <Logo
-              tone={open ? "dark" : "light"}
+              tone={open || overHero ? "dark" : "light"}
               animated={desenhaLogo && !open}
               className="h-8 w-auto md:h-9"
             />
@@ -94,12 +97,20 @@ export function Header() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={`group relative text-[13.5px] font-medium tracking-[-0.01em] transition-colors ${
-                    active ? "text-ink" : "text-graphite hover:text-ink"
+                    overHero
+                      ? active
+                        ? "text-white"
+                        : "text-white/80 hover:text-white"
+                      : active
+                        ? "text-ink"
+                        : "text-graphite hover:text-ink"
                   }`}
                 >
                   {item.label}
                   <span
-                    className={`absolute -bottom-1.5 left-0 h-px bg-accent transition-all duration-300 ${
+                    className={`absolute -bottom-1.5 left-0 h-px transition-all duration-300 ${
+                      overHero ? "bg-white" : "bg-accent"
+                    } ${
                       active ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
@@ -117,14 +128,20 @@ export function Header() {
               data-cta="whatsapp-cabecalho"
               aria-label="Solicitar orçamento pelo WhatsApp"
               className={`flex h-11 w-11 items-center justify-center rounded-lg transition-colors duration-300 sm:hidden ${
-                open ? "pointer-events-none opacity-0" : "bg-accent text-white"
+                open
+                  ? "pointer-events-none opacity-0"
+                  : overHero
+                    ? "bg-white/15 text-white"
+                    : "bg-accent text-white"
               }`}
             >
               <WhatsAppIcon className="h-5 w-5" />
             </a>
             <Link
               href={routes.contato}
-              className="group hidden items-center gap-2 rounded-lg bg-accent px-5 py-3 text-[13px] font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-brand-red sm:inline-flex"
+              className={`group hidden items-center gap-2 rounded-lg px-5 py-3 text-[13px] font-medium tracking-[-0.01em] transition-colors duration-300 hover:bg-brand-red hover:text-white sm:inline-flex ${
+                overHero ? "bg-white text-accent" : "bg-accent text-white"
+              }`}
             >
               Solicitar orçamento
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -137,7 +154,7 @@ export function Header() {
               aria-controls="menu-mobile"
               aria-label={open ? "Fechar menu" : "Abrir menu"}
               className={`relative z-50 flex h-11 w-11 items-center justify-center transition-colors duration-300 lg:hidden ${
-                open ? "text-white" : "text-ink"
+                open || overHero ? "text-white" : "text-ink"
               }`}
             >
               <span className="relative block h-3 w-5">

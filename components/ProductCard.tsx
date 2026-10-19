@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { icons, WhatsAppIcon } from "./ui/icons";
 import { whatsappLink, type Product } from "@/lib/site";
 
@@ -5,9 +6,9 @@ import { whatsappLink, type Product } from "@/lib/site";
  * Card de produto com peça visual no topo.
  *
  * Não usamos caixa nem logo oficial dos produtos (marca de terceiros e sem
- * arquivo autorizado): a peça é um painel no azul da marca com o ícone do
- * produto em escala grande, o que dá a cada item uma "capa" própria sem sair
- * da identidade.
+ * arquivo autorizado): a peça é uma foto conceitual com o mesmo duotone azul
+ * das cidades — cada produto ganha uma capa própria sem sair da identidade.
+ * No hover a cor da foto volta.
  *
  * O botão de orçamento abre o WhatsApp com o nome do produto já na mensagem.
  * `data-cta`/`data-produto` ficam prontos para o evento de conversão no GA4.
@@ -30,21 +31,30 @@ export function ProductCard({
       className="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-lg border border-mist-line bg-white transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_24px_50px_-30px_rgba(22,48,110,0.45)]"
     >
       <div
-        className={`relative overflow-hidden bg-gradient-to-br from-accent via-accent to-accent-deep ${
-          compact ? "h-24 sm:h-28" : "h-36"
+        className={`relative overflow-hidden bg-accent ${
+          compact ? "h-28 sm:h-32" : "h-44"
         }`}
       >
-        <div
-          aria-hidden="true"
-          className="grid-technical-dark absolute inset-0 opacity-60 [background-size:24px_24px]"
+        <Image
+          src={product.image}
+          alt={product.imageAlt}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1280px) 50vw, 25vw"
+          className="scale-[1.02] object-cover grayscale contrast-[1.08] transition-[transform,filter] duration-[900ms] ease-out group-hover:scale-[1.08] group-hover:grayscale-0 group-hover:contrast-100"
         />
-        <Icon
+        {/* duotone da marca, como nas fotos das cidades */}
+        <span
           aria-hidden="true"
-          className={`absolute text-white/[0.09] transition-transform duration-700 group-hover:scale-110 ${
-            compact
-              ? "-bottom-6 -right-4 h-32 w-32"
-              : "-bottom-8 -right-6 h-44 w-44"
-          }`}
+          className="pointer-events-none absolute inset-0 bg-accent/70 mix-blend-color transition-opacity duration-[900ms] group-hover:opacity-0"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-accent/30 transition-opacity duration-[900ms] group-hover:opacity-0"
+        />
+        {/* base escura: rótulo e ícone legíveis em qualquer foto */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-linear-to-t from-ink/70 via-ink/10 to-ink/45"
         />
         <span
           aria-hidden="true"

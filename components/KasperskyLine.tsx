@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "./ui/Container";
 import { Reveal } from "./ui/Reveal";
@@ -64,14 +65,18 @@ export function KasperskyLine() {
 
           <Reveal delay={120}>
             <div className="overflow-hidden rounded-lg border border-fog-line bg-white">
-              <div className="relative h-32 overflow-hidden bg-ink md:h-36">
-                <div
-                  aria-hidden="true"
-                  className="grid-technical-dark absolute inset-0 opacity-70 [background-size:24px_24px]"
+              <div className="group relative h-40 overflow-hidden bg-ink md:h-48">
+                <Image
+                  src="/produtos/kaspersky.jpg"
+                  alt="Cadeado vermelho sobre o teclado de um computador"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="scale-[1.02] object-cover contrast-[1.05] saturate-[0.85] transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
                 />
-                <Shield
+                {/* aqui a foto fica sem duotone: o vermelho do cadeado já é a cor da linha */}
+                <span
                   aria-hidden="true"
-                  className="absolute -bottom-10 -right-6 h-48 w-48 text-white/[0.07]"
+                  className="pointer-events-none absolute inset-0 bg-linear-to-t from-ink/80 via-ink/30 to-ink/55"
                 />
                 <span
                   aria-hidden="true"
