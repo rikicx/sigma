@@ -9,7 +9,7 @@ export function DifferentialsSection() {
   return (
     <section
       id="diferenciais"
-      className="relative scroll-mt-20 py-24 md:py-32"
+      className="relative scroll-mt-20 border-b border-fog-line bg-fog py-24 md:py-32"
       aria-labelledby="diferenciais-titulo"
     >
       <Container>
@@ -24,7 +24,7 @@ export function DifferentialsSection() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           <Reveal className="lg:col-span-1">
-            <article className="relative flex h-full flex-col justify-between overflow-hidden rounded-lg border border-line bg-paper-pure p-9 lg:p-10">
+            <article className="relative flex h-full flex-col justify-between overflow-hidden rounded-lg border border-fog-line bg-white p-9 lg:p-10">
               <div className="relative">
                 <h3 className="display-md text-balance text-ink">
                   {featured.title}
@@ -48,10 +48,10 @@ export function DifferentialsSection() {
             </article>
           </Reveal>
 
-          <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:col-span-2 rounded-lg overflow-hidden">
+          <div className="grid gap-px border border-fog-line bg-fog-line sm:grid-cols-2 lg:col-span-2 rounded-lg overflow-hidden">
             {rest.map((item, index) => (
               <Reveal key={item.title} delay={index * 60}>
-                <article className="group h-full bg-paper-pure p-8 transition-colors duration-500 hover:bg-white">
+                <article className="group h-full bg-white p-8 transition-colors duration-500 hover:bg-paper-pure">
                   <div className="flex items-start gap-4">
                     <span
                       className="mt-2 h-1.5 w-1.5 shrink-0 bg-accent transition-transform duration-500 group-hover:scale-150"

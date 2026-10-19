@@ -19,6 +19,14 @@
   --color-mute: #63687b;
   --color-mute-soft: #9a9eae;
 
+  /* faixas de seção: azul e cinza suaves para alternar com o off-white.
+     Sem elas o site inteiro ficava num tom só (feedback do cliente, 19/10/2026). */
+  --color-mist: #e7edf6;
+  --color-mist-deep: #d9e2f0;
+  --color-mist-line: #cfd9e8;
+  --color-fog: #eceef2;
+  --color-fog-line: #d9dde4;
+
   --color-line: #e3e0d9;
   --color-line-strong: #d2cec5;
 

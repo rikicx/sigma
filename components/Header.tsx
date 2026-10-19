@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Container } from "./ui/Container";
 import { Logo } from "./ui/Logo";
-import { ArrowRight } from "./ui/icons";
+import { ArrowRight, WhatsAppIcon } from "./ui/icons";
 import { contact, nav, routes } from "@/lib/site";
 
 /** O logo se desenha uma vez por carregamento, e só na home. */
@@ -109,6 +109,19 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
+            {/* no celular o botão de orçamento não cabe: fica o atalho do WhatsApp */}
+            <a
+              href={contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="whatsapp-cabecalho"
+              aria-label="Solicitar orçamento pelo WhatsApp"
+              className={`flex h-11 w-11 items-center justify-center rounded-lg transition-colors duration-300 sm:hidden ${
+                open ? "pointer-events-none opacity-0" : "bg-accent text-white"
+              }`}
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+            </a>
             <Link
               href={routes.contato}
               className="group hidden items-center gap-2 rounded-lg bg-accent px-5 py-3 text-[13px] font-medium tracking-[-0.01em] text-white transition-colors duration-300 hover:bg-brand-red sm:inline-flex"

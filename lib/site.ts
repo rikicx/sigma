@@ -9,8 +9,16 @@ export const site = {
   /** Domínio registrado pelo cliente em 17/09/2026, com e-mail Titan já ativo. */
   url: "https://sigmabrasil.com",
   description:
-    "Venda de licenças Microsoft e antivírus corporativo com consultoria em licenciamento: Windows, Windows Server, Office e suporte para empresas.",
+    "Sigma Brasil: licenças Microsoft (Windows Pro, Office, Windows Server, SQL Server, Visual Studio, Visio e Project) e antivírus Kaspersky para empresas, com consultoria em licenciamento.",
 } as const;
+
+/** ⚠️ TROCAR AQUI: confirmar WhatsApp comercial. Este consta na página de contato do site antigo. */
+const whatsappNumber = "5521997041294";
+
+/** Link de WhatsApp com mensagem pronta — usado nos botões de orçamento por produto. */
+export function whatsappLink(message: string) {
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
 
 export const contact = {
   /** E-mails confirmados pelo cliente em 01/10/2026. */
@@ -19,10 +27,10 @@ export const contact = {
   /** ⚠️ TROCAR AQUI: telefone novo prometido pelo cliente. Este é o do site antigo. */
   phone: "(21) 3942-8787",
   phoneHref: "tel:+552139428787",
-  /** ⚠️ TROCAR AQUI: confirmar WhatsApp comercial. Este consta na página de contato do site antigo. */
   whatsapp: "(21) 99704-1294",
-  whatsappHref:
-    "https://wa.me/5521997041294?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Sigma%20Brasil%20sobre%20licenciamento%20de%20software.",
+  whatsappHref: whatsappLink(
+    "Olá, gostaria de falar com a Sigma Brasil sobre licenciamento de software.",
+  ),
   address: {
     street: "Rua México, 31",
     district: "Centro",
@@ -54,34 +62,9 @@ export const nav = [
 /* Home                                                                */
 /* ------------------------------------------------------------------ */
 
-export const offers = [
-  {
-    id: "licencas",
-    eyebrow: "Software",
-    title: "Licenças Microsoft",
-    text: "Windows, Windows Pro, Office e Windows Server. Dizemos qual versão e quantas licenças a sua operação precisa — e, principalmente, por quê.",
-    items: ["Windows e Windows Pro", "Office", "Windows Server"],
-    href: routes.licencas,
-    cta: "Ver licenças Microsoft",
-    icon: "windows" as const,
-    tone: "navy" as const,
-  },
-  {
-    id: "antivirus",
-    eyebrow: "Segurança",
-    title: "Antivírus corporativo",
-    text: "Licenciamento Kaspersky para os computadores e servidores da empresa, pelo número real de dispositivos. A renovação quem acompanha somos nós.",
-    items: ["Kaspersky", "Estações e servidores", "Renovações"],
-    href: routes.antivirus,
-    cta: "Ver antivírus corporativo",
-    icon: "shield" as const,
-    tone: "red" as const,
-  },
-] as const;
-
 export const heroIndicators = [
   "Licenças Microsoft",
-  "Antivírus corporativo",
+  "Antivírus Kaspersky",
   "Consultoria em licenciamento",
   "Suporte a empresas",
 ] as const;
@@ -93,32 +76,81 @@ export const heroIndicators = [
 export type Product = {
   id: string;
   title: string;
+  /** categoria curta, mostrada sobre a peça visual do card */
+  family: string;
   text: string;
   points: readonly string[];
-  icon: "device" | "office" | "server";
+  icon: "windows" | "office" | "server" | "key" | "database" | "code" | "diagram" | "gantt";
 };
 
+/**
+ * Portfólio Microsoft comercializado pela Sigma (confirmado pelo cliente em
+ * 19/10/2026). A linha Microsoft 365 não é trabalhada e não deve aparecer.
+ */
 export const products: readonly Product[] = [
   {
-    id: "windows",
-    title: "Windows e Windows Pro",
-    text: "Licenciamento do sistema operacional para os computadores da empresa, com os recursos de segurança e gestão que a versão Pro oferece em relação à versão doméstica.",
-    points: ["Parque padronizado", "Segurança de endpoint", "Mobilidade corporativa"],
-    icon: "device",
+    id: "windows-pro",
+    title: "Windows Pro",
+    family: "Sistema operacional",
+    text: "A edição profissional do Windows para os computadores da empresa: ingresso em domínio, criptografia BitLocker e políticas de grupo, recursos que a edição doméstica não tem.",
+    points: ["Estações de trabalho", "Gestão em domínio", "BitLocker"],
+    icon: "windows",
   },
   {
     id: "office",
     title: "Office",
-    text: "Pacote de produtividade instalado no computador — Word, Excel, PowerPoint e Outlook — licenciado por dispositivo.",
-    points: ["Licença por dispositivo", "Produtividade no desktop", "Atualização de versão"],
+    family: "Produtividade",
+    text: "Word, Excel, PowerPoint e, conforme a edição, Outlook — instalados no computador e licenciados por dispositivo.",
+    points: ["Licença por dispositivo", "Instalado no desktop"],
     icon: "office",
   },
   {
     id: "windows-server",
     title: "Windows Server",
-    text: "Licenciamento de servidores corporativos, incluindo as licenças de acesso (CALs) por usuário ou por dispositivo e cenários de virtualização.",
-    points: ["CALs e métricas", "Virtualização", "Ambientes híbridos"],
+    family: "Servidores",
+    text: "Sistema operacional dos servidores da empresa, licenciado por núcleo. A edição Datacenter atende ambientes com muitas máquinas virtuais no mesmo servidor.",
+    points: ["Licença por núcleo", "Edição Datacenter", "Virtualização"],
     icon: "server",
+  },
+  {
+    id: "cals",
+    title: "CALs de acesso",
+    family: "Acesso ao servidor",
+    text: "Licenças de acesso de cliente que cada usuário ou dispositivo precisa para se conectar ao servidor. Escolher entre CAL de usuário e de dispositivo muda o custo.",
+    points: ["CAL de usuário", "CAL de dispositivo"],
+    icon: "key",
+  },
+  {
+    id: "sql-server",
+    title: "SQL Server",
+    family: "Banco de dados",
+    text: "Banco de dados dos sistemas da empresa, licenciado por núcleo ou no modelo servidor + CAL. A escolha do modelo é o que mais pesa no orçamento.",
+    points: ["Por núcleo", "Servidor + CAL"],
+    icon: "database",
+  },
+  {
+    id: "visual-studio",
+    title: "Visual Studio",
+    family: "Desenvolvimento",
+    text: "Ambiente de desenvolvimento para as equipes que criam e mantêm os sistemas da empresa, licenciado por desenvolvedor.",
+    points: ["Por desenvolvedor", "Equipes de software"],
+    icon: "code",
+  },
+  {
+    id: "visio",
+    title: "Visio",
+    family: "Diagramas",
+    text: "Fluxogramas, organogramas e diagramas de processos e de rede, licenciado para quem desenha.",
+    points: ["Processos e fluxos", "Diagramas de rede"],
+    icon: "diagram",
+  },
+  {
+    id: "project",
+    title: "Project",
+    family: "Gestão de projetos",
+    text: "Planejamento de cronogramas, recursos e prazos para quem coordena projetos na empresa.",
+    points: ["Cronogramas", "Recursos e prazos"],
+    icon: "gantt",
   },
 ];
 
@@ -254,7 +286,7 @@ export const differentials = [
   },
   {
     title: "Conhecimento em soluções Microsoft",
-    text: "Windows, Office e Windows Server dentro de um mesmo raciocínio de licenciamento.",
+    text: "Windows Pro, Office, Windows Server, CALs, SQL Server, Visual Studio, Visio e Project dentro de um mesmo raciocínio de licenciamento.",
   },
   {
     title: "Orientação para empresas em crescimento",

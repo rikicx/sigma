@@ -3,8 +3,8 @@ import { Container } from "./ui/Container";
 import { Reveal } from "./ui/Reveal";
 import { Parallax } from "./ui/Parallax";
 import { HeroVisual } from "./HeroVisual";
-import { ArrowRight } from "./ui/icons";
-import { heroIndicators, routes } from "@/lib/site";
+import { ArrowRight, WhatsAppIcon } from "./ui/icons";
+import { contact, heroIndicators, routes } from "@/lib/site";
 
 /**
  * Primeira dobra da home.
@@ -13,6 +13,9 @@ import { heroIndicators, routes } from "@/lib/site";
  * cheia: é o que permite a escala grande sem espremer a medida. A peça foi
  * para o canto direito, atrás do conteúdo, e o texto de apoio desceu para uma
  * coluna estreita abaixo do título.
+ *
+ * A abertura apresenta a empresa — quem é a Sigma Brasil e como ela trabalha.
+ * Os produtos ficam para as seções seguintes (feedback do cliente, 19/10/2026).
  *
  * A entrada é uma sequência só, no primeiro load: título, frase de apoio,
  * botões e indicadores, nessa ordem — ver `hero-rise` no globals.css.
@@ -37,9 +40,7 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-50" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-red" />
               </span>
-              <span className="eyebrow text-accent">
-                Licenças · Antivírus · Consultoria
-              </span>
+              <span className="eyebrow text-accent">Quem somos</span>
             </div>
 
             {/* a medida fica no elemento que tem o tamanho do display: em ch
@@ -49,13 +50,13 @@ export function Hero() {
                 className="hero-rise display-hero block max-w-[15ch]"
                 style={{ "--d": "90ms" } as React.CSSProperties}
               >
-                Licenças Microsoft e antivírus para a sua empresa.
+                Somos a Sigma Brasil.
               </span>
               <span
                 className="hero-rise mt-4 block max-w-[26ch] text-[1.15rem] font-normal leading-snug tracking-[-0.015em] text-graphite lg:mt-5 lg:text-[1.6rem]"
                 style={{ "--d": "260ms" } as React.CSSProperties}
               >
-                Primeiro a conta. Depois a proposta.
+                Licenciamento de software e consultoria para empresas.
               </span>
             </h1>
 
@@ -63,9 +64,11 @@ export function Hero() {
               className="hero-rise mt-7 max-w-[46ch] text-pretty text-base leading-relaxed text-graphite lg:mt-8 lg:text-[17px]"
               style={{ "--d": "380ms" } as React.CSSProperties}
             >
-              Fazemos a conta antes da compra: quantos usuários, quantos
-              dispositivos, quais servidores. Você recebe as opções, o custo de
-              cada uma e a recomendação — em português, não em contrato.
+              Vendemos licenças Microsoft e antivírus Kaspersky, e tratamos cada
+              venda como uma decisão técnica. Antes do orçamento entendemos
+              quantos usuários, dispositivos e servidores a empresa tem — você
+              recebe as opções, o custo de cada uma e a recomendação, em
+              português, não em contrato.
             </p>
           </div>
 
@@ -80,13 +83,16 @@ export function Hero() {
               Solicitar orçamento
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-            <Link
-              href={routes.licencas}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-line-strong px-7 py-4 text-sm font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:border-ink hover:bg-paper"
+            <a
+              href={contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="whatsapp"
+              className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-line-strong bg-white/50 px-7 py-4 text-sm font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:border-ink hover:bg-white"
             >
-              Ver licenças
-              <ArrowRight className="h-4 w-4 text-mute transition-all duration-300 group-hover:translate-x-1 group-hover:text-ink" />
-            </Link>
+              <WhatsAppIcon className="h-4 w-4 text-accent" />
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
 

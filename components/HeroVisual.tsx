@@ -207,15 +207,15 @@ export function HeroVisual({ tone = "light" }: { tone?: Tone }) {
 
       <FloatingModule
         tone={tone}
-        label="Windows"
+        label="Windows Pro"
         meta="Sistema operacional"
         className="left-[-4%] top-[18%]"
         depth={24}
       />
       <FloatingModule
         tone={tone}
-        label="Antivírus"
-        meta="Segurança"
+        label="Kaspersky"
+        meta="Antivírus"
         className="right-[-6%] top-[42%]"
         depth={-30}
       />

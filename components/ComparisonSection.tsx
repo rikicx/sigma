@@ -8,7 +8,7 @@ export function ComparisonSection() {
   return (
     <section
       id="comparativo"
-      className="relative border-t border-line py-24 md:py-32"
+      className="relative border-y border-mist-line bg-mist py-24 md:py-32"
       aria-labelledby="comparativo-titulo"
     >
       <Container className="relative">
@@ -24,7 +24,7 @@ export function ComparisonSection() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-2 lg:gap-8">
           <Reveal>
-            <article className="h-full rounded-lg border border-line bg-paper-pure/70 p-8 md:p-10">
+            <article className="h-full rounded-lg border border-mist-line bg-white p-8 md:p-10">
               <header className="flex items-center justify-between border-b border-line pb-6">
                 <h3 className="text-[18px] font-medium tracking-[-0.02em] text-graphite">
                   Comprar software sem consultoria

@@ -80,10 +80,15 @@ const organizationLd = {
   },
   knowsAbout: [
     "Licenças Microsoft",
-    "Windows e Windows Pro",
-    "Windows Server",
+    "Windows Pro",
     "Office",
-    "Antivírus corporativo",
+    "Windows Server",
+    "CALs de acesso",
+    "SQL Server",
+    "Visual Studio",
+    "Visio",
+    "Project",
+    "Antivírus Kaspersky",
     "Consultoria em licenciamento de software",
   ],
 };

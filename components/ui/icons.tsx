@@ -77,6 +77,43 @@ export const icons = {
       <path d="M22 7.5h3M22 16.5h3" strokeOpacity="0.45" />
     </svg>
   ),
+  key: (props: IconProps) => (
+    <svg {...base} {...props}>
+      <circle cx="10" cy="16" r="5.5" />
+      <path d="M15.5 16H28M23 16v4.5M27 16v3" />
+      <circle cx="10" cy="16" r="1.6" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  database: (props: IconProps) => (
+    <svg {...base} {...props}>
+      <ellipse cx="16" cy="7.5" rx="10" ry="3.5" />
+      <path d="M6 7.5v17c0 1.9 4.5 3.5 10 3.5s10-1.6 10-3.5v-17" />
+      <path d="M6 13.2c0 1.9 4.5 3.5 10 3.5s10-1.6 10-3.5M6 18.9c0 1.9 4.5 3.5 10 3.5s10-1.6 10-3.5" strokeOpacity="0.45" />
+    </svg>
+  ),
+  code: (props: IconProps) => (
+    <svg {...base} {...props}>
+      <rect x="3" y="5" width="26" height="22" strokeOpacity="0.4" />
+      <path d="M3 10h26" strokeOpacity="0.4" />
+      <path d="M12 15l-4 3.5 4 3.5M20 15l4 3.5-4 3.5M17.5 13.5l-3 10" />
+    </svg>
+  ),
+  diagram: (props: IconProps) => (
+    <svg {...base} {...props}>
+      <rect x="11" y="3" width="10" height="7" />
+      <rect x="3" y="22" width="10" height="7" />
+      <rect x="19" y="22" width="10" height="7" />
+      <path d="M16 10v6M8 22v-6h16v6" strokeOpacity="0.5" />
+    </svg>
+  ),
+  gantt: (props: IconProps) => (
+    <svg {...base} {...props}>
+      <path d="M4 4v24h24" strokeOpacity="0.35" />
+      <rect x="8" y="7" width="10" height="4" />
+      <rect x="13" y="14" width="12" height="4" />
+      <rect x="10" y="21" width="8" height="4" strokeOpacity="0.5" />
+    </svg>
+  ),
   support: (props: IconProps) => (
     <svg {...base} {...props}>
       <circle cx="16" cy="16" r="11" strokeOpacity="0.35" />

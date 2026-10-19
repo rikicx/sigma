@@ -20,40 +20,65 @@ const highlights = [
     text: "Regras de licenciamento traduzidas no que importa: custo, risco e operação.",
   },
   {
+    icon: "advisory" as const,
+    title: "Canal direto",
+    text: "Você fala com quem entende do assunto, sem fila de chamados para tirar uma dúvida objetiva.",
+  },
+  {
     icon: "support" as const,
     title: "Acompanhamento depois",
     text: "Renovação, mudança de política e crescimento do ambiente seguem acompanhados.",
   },
 ];
 
-/** Home: a consultoria como diferencial da venda, com link para a página dedicada. */
+/**
+ * Home: quem é a Sigma e o que a diferencia — vem logo depois da abertura,
+ * antes dos produtos. Faixa em azul suave para separar do hero.
+ */
 export function ConsultiveStrip() {
   return (
-    <section className="relative border-y border-line py-20 md:py-28">
+    <section
+      id="diferenciais"
+      className="relative scroll-mt-20 border-y border-mist-line bg-mist py-20 md:py-28"
+      aria-labelledby="diferenciais-titulo"
+    >
       <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <Parallax speed={38} minWidth={1024}>
             <Reveal>
-              <h2 className="display-lg text-balance text-ink">
+              <h2
+                id="diferenciais-titulo"
+                className="display-lg text-balance text-ink"
+              >
                 Licença todo mundo vende. Explicar a decisão, não.
               </h2>
             </Reveal>
             <Reveal delay={150}>
               <p className="mt-6 max-w-lg text-pretty text-[15.5px] leading-relaxed text-graphite">
-                Comprar software sem orientação custa caro de dois jeitos:
-                pagando pelo que ninguém usa ou descobrindo tarde que faltou
-                licença. Nosso trabalho é eliminar os dois cenários antes de
-                você assinar.
+                A Sigma Brasil vende licenças de software e antivírus para
+                empresas com uma diferença: a consultoria vem junto. Comprar
+                sem orientação custa caro de dois jeitos — pagando pelo que
+                ninguém usa ou descobrindo tarde que faltou licença. Nosso
+                trabalho é eliminar os dois cenários antes de você assinar.
               </p>
             </Reveal>
             <Reveal delay={210}>
-              <Link
-                href={routes.consultoria}
-                className="group mt-8 inline-flex items-center gap-2 py-2 text-[14px] font-medium text-ink transition-colors hover:text-accent"
-              >
-                Conhecer o método Sigma
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-1">
+                <Link
+                  href={routes.sobre}
+                  className="group inline-flex items-center gap-2 py-2 text-[14px] font-medium text-ink transition-colors hover:text-accent"
+                >
+                  Conhecer a Sigma Brasil
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  href={routes.consultoria}
+                  className="group inline-flex items-center gap-2 py-2 text-[14px] font-medium text-ink transition-colors hover:text-accent"
+                >
+                  Ver o método de consultoria
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
             </Reveal>
           </Parallax>
 

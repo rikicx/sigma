@@ -7,7 +7,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 export const metadata: Metadata = {
   title: "Licenças Microsoft para empresas",
   description:
-    "Venda de licenças Microsoft para empresas: Windows, Windows Pro, Office e Windows Server, com dimensionamento por uso real e apoio na ativação.",
+    "Licenças Microsoft para empresas: Windows Pro, Office, Windows Server, CALs, SQL Server, Visual Studio, Visio e Project, com dimensionamento por uso real.",
   alternates: { canonical: "/licencas-microsoft" },
 };
 
@@ -16,7 +16,7 @@ export default function LicencasMicrosoft() {
     <>
       <PageHero
         title="Licenças Microsoft para empresas, na medida da operação."
-        description="Windows, Windows Pro, Office e Windows Server. Antes de mandar o orçamento, entendemos quantos usuários, quantos dispositivos e quais servidores existem — é isso que define a licença correta e o custo real."
+        description="Windows Pro, Office, Windows Server, CALs de acesso, SQL Server, Visual Studio, Visio e Project. Antes de mandar o orçamento, entendemos quantos usuários, quantos dispositivos e quais servidores existem — é isso que define a licença correta e o custo real."
         crumbs={[{ label: "Licenças Microsoft" }]}
       />
       <ProductsSection />
