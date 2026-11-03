@@ -86,14 +86,15 @@ export function Footer() {
                   {contact.phone}
                 </a>
               </li>
-              <li className="leading-relaxed">
-                {contact.address.street}
-                <br />
-                {contact.address.district} — {contact.address.city}/
-                {contact.address.state}
-                <br />
-                CEP {contact.address.zip}
-              </li>
+              {contact.offices.map((office) => (
+                <li key={office.city} className="leading-relaxed">
+                  {office.street}
+                  <br />
+                  {office.district} — {office.city}/{office.state}
+                  <br />
+                  CEP {office.zip}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -71,14 +71,14 @@ const organizationLd = {
   email: contact.emailVendas,
   telephone: contact.phone,
   areaServed: "BR",
-  address: {
+  address: contact.offices.map((office) => ({
     "@type": "PostalAddress",
-    streetAddress: contact.address.street,
-    addressLocality: contact.address.city,
-    addressRegion: contact.address.state,
-    postalCode: contact.address.zip,
-    addressCountry: contact.address.country,
-  },
+    streetAddress: office.street,
+    addressLocality: office.city,
+    addressRegion: office.state,
+    postalCode: office.zip,
+    addressCountry: office.country,
+  })),
   knowsAbout: [
     "Licenças Microsoft",
     "Windows Pro",

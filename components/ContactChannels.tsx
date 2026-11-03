@@ -27,8 +27,6 @@ const channels = [
 ];
 
 export function ContactChannels() {
-  const { street, district, city, state, zip } = contact.address;
-
   return (
     <section className="py-20 md:py-24" aria-labelledby="canais-titulo">
       <Container>
@@ -71,15 +69,19 @@ export function ContactChannels() {
         </div>
 
         <Reveal delay={150}>
-          <div className="mt-6 rounded-lg border border-line bg-paper-pure px-8 py-7">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-mute">
-              Endereço
-            </span>
-            <address className="mt-3 not-italic text-[15px] leading-relaxed text-ink">
-              {street} — {district}
-              <br />
-              {city}/{state} — CEP {zip}
-            </address>
+          <div className="mt-6 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
+            {contact.offices.map((office) => (
+              <div key={office.city} className="bg-paper-pure px-8 py-7">
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-mute">
+                  Filial {office.city}
+                </span>
+                <address className="mt-3 not-italic text-[15px] leading-relaxed text-ink">
+                  {office.street} — {office.district}
+                  <br />
+                  {office.city}/{office.state} — CEP {office.zip}
+                </address>
+              </div>
+            ))}
           </div>
         </Reveal>
 

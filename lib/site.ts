@@ -30,14 +30,25 @@ export const contact = {
   whatsappHref: whatsappLink(
     "Olá, gostaria de falar com a Sigma Brasil sobre licenciamento de software.",
   ),
-  address: {
-    street: "Rua México, 31",
-    district: "Centro",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip: "20031-144",
-    country: "BR",
-  },
+  /** Endereços das filiais confirmados pelo cliente em 03/11/2026. */
+  offices: [
+    {
+      city: "Rio de Janeiro",
+      street: "Rua México, 31, sala 703",
+      district: "Centro",
+      state: "RJ",
+      zip: "20031-904",
+      country: "BR",
+    },
+    {
+      city: "São Paulo",
+      street: "Rua Pires da Mota, 565, sala 3",
+      district: "Aclimação",
+      state: "SP",
+      zip: "01529-001",
+      country: "BR",
+    },
+  ],
 } as const;
 
 export const routes = {
@@ -340,6 +351,6 @@ export const comparison = {
 export const pillars = [
   { label: "Atuação", value: "Licenciamento, antivírus e consultoria" },
   { label: "Especialidade", value: "Soluções Microsoft para empresas" },
-  { label: "Base", value: `${contact.address.city} — ${contact.address.state}` },
+  { label: "Filiais", value: "Rio de Janeiro e São Paulo" },
   { label: "Modelo", value: "Atendimento consultivo e continuado" },
 ] as const;
