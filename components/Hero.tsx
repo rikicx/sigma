@@ -115,7 +115,10 @@ export function Hero() {
         </div>
       </Container>
 
-      <div className="relative flex min-h-10 flex-[1_1_0px] flex-col justify-end">
+      {/* no desktop o mínimo é o próprio conteúdo (min-h-auto): com um mínimo
+          fixo, o Chromium deixava o espaçador encolher abaixo da altura dos
+          indicadores e eles subiam sobre os botões em telas baixas */}
+      <div className="relative flex min-h-10 flex-[1_1_0px] flex-col justify-end lg:min-h-auto">
         <Container className="hidden pt-6 pb-8 lg:block">
           <Parallax speed={26} minWidth={768}>
             <ul
