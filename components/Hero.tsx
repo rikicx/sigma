@@ -10,6 +10,8 @@ import { contact, heroIndicators, routes } from "@/lib/site";
  *
  * A abertura apresenta a empresa — quem é a Sigma Brasil e como ela trabalha.
  * Os produtos ficam para as seções seguintes (feedback do cliente, 19/10/2026).
+ * O parágrafo da proposta desceu para a ProposalSection, logo abaixo, para
+ * aliviar a primeira dobra.
  *
  * Fundo em vídeo (pessoas trabalhando, servidores) sob um degradê do azul para
  * o vermelho da marca, com o texto em branco. O texto fica à esquerda, onde o
@@ -85,15 +87,6 @@ export function Hero() {
               reais da sua empresa. Antes de elaborar o orçamento, analisamos a
               quantidade de usuários, dispositivos e servidores para identificar
               as opções mais adequadas ao seu ambiente de TI.
-            </p>
-            <p
-              className="hero-rise mt-4 max-w-[46ch] lg:max-w-none text-pretty text-base leading-relaxed text-white/80 lg:text-[17px]"
-              style={{ "--d": "440ms" } as React.CSSProperties}
-            >
-              Você recebe uma proposta clara, com as alternativas disponíveis, os
-              respectivos custos e nossa recomendação técnica, tudo explicado de
-              forma simples, objetiva e transparente, para que você tome a melhor
-              decisão com segurança.
             </p>
           </div>
 

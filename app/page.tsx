@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
+import { ProposalSection } from "@/components/ProposalSection";
 import { ConsultiveStrip } from "@/components/ConsultiveStrip";
 import { MicrosoftPortfolio } from "@/components/MicrosoftPortfolio";
 import { KasperskyLine } from "@/components/KasperskyLine";
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <ProposalSection />
       <ConsultiveStrip />
       <MicrosoftPortfolio />
       <KasperskyLine />
