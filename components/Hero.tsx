@@ -80,11 +80,20 @@ export function Hero() {
               className="hero-rise mt-7 max-w-[46ch] lg:max-w-none text-pretty text-base leading-relaxed text-white/80 lg:mt-8 lg:text-[17px]"
               style={{ "--d": "380ms" } as React.CSSProperties}
             >
-              Vendemos licenças Microsoft e antivírus Kaspersky, e tratamos cada
-              venda como uma decisão técnica. Antes do orçamento entendemos
-              quantos usuários, dispositivos e servidores a empresa tem — você
-              recebe as opções, o custo de cada uma e a recomendação, em
-              português, não em contrato.
+              Comercializamos licenças Microsoft e soluções de segurança
+              Kaspersky com uma abordagem consultiva, focada nas necessidades
+              reais da sua empresa. Antes de elaborar o orçamento, analisamos a
+              quantidade de usuários, dispositivos e servidores para identificar
+              as opções mais adequadas ao seu ambiente de TI.
+            </p>
+            <p
+              className="hero-rise mt-4 max-w-[46ch] lg:max-w-none text-pretty text-base leading-relaxed text-white/80 lg:text-[17px]"
+              style={{ "--d": "440ms" } as React.CSSProperties}
+            >
+              Você recebe uma proposta clara, com as alternativas disponíveis, os
+              respectivos custos e nossa recomendação técnica — tudo explicado de
+              forma simples, objetiva e transparente, para que você tome a melhor
+              decisão com segurança.
             </p>
           </div>
 

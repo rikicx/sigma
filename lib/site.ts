@@ -23,7 +23,6 @@ export function whatsappLink(message: string) {
 export const contact = {
   /** E-mails confirmados pelo cliente em 01/10/2026. */
   emailVendas: "vendas@sigmabrasil.com",
-  emailGerencia: "gerencia@sigmabrasil.com",
   /** ⚠️ TROCAR AQUI: telefone novo prometido pelo cliente. Este é o do site antigo. */
   phone: "(21) 3942-8787",
   phoneHref: "tel:+552139428787",

@@ -7,7 +7,7 @@ import { Parallax } from "./ui/Parallax";
 import { contact } from "@/lib/site";
 
 /**
- * Rio e São Paulo em fotografia tratada.
+ * Atuação nacional, com as filiais do Rio e de São Paulo em fotografia tratada.
  *
  * As imagens entram em duotone azul-marinho (dessaturadas + camada da cor da
  * marca em mix-blend-color), o que tira o ar de banco de imagens e amarra à
@@ -35,7 +35,7 @@ const cities = [
     name: "São Paulo",
     landmark: "Ponte Estaiada",
     // ⚠️ PENDENTE: endereço e telefone de São Paulo não foram informados.
-    detail: "Atendimento para empresas na capital e região",
+    detail: "Filial São Paulo",
     src: "/cidades/sao-paulo-ponte-estaiada.jpg",
     alt: "Ponte Octávio Frias de Oliveira sobre a Marginal Pinheiros, com os edifícios da Berrini ao fundo, em São Paulo",
     width: 900,
@@ -58,14 +58,14 @@ export function CitiesSection() {
               id="cidades-titulo"
               className="display-lg text-balance text-ink"
             >
-              Rio de Janeiro e São Paulo.
+              Atuação em todo o Brasil
             </h2>
           </Reveal>
           <Reveal delay={140}>
             <p className="mt-6 text-pretty text-[15.5px] leading-relaxed text-graphite">
-              Atendemos empresas nas duas cidades com o mesmo time e o mesmo
-              critério técnico para dimensionar licenças, antivírus e
-              renovações.
+              Com filiais no Rio de Janeiro e em São Paulo, atendemos empresas
+              em todo o território nacional, oferecendo soluções em
+              licenciamento Microsoft e segurança Kaspersky.
             </p>
           </Reveal>
         </div>

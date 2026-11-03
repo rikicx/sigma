@@ -11,12 +11,6 @@ const channels = [
     hint: "Orçamento, licenças e renovação",
   },
   {
-    label: "Gerência",
-    value: contact.emailGerencia,
-    href: `mailto:${contact.emailGerencia}`,
-    hint: "Assuntos institucionais, elogios e reclamações",
-  },
-  {
     // ⚠️ TROCAR AQUI: telefone novo prometido pelo cliente (o atual é o do site antigo).
     label: "Telefone",
     value: contact.phone,
@@ -44,7 +38,12 @@ export function ContactChannels() {
 
         <div className="grid gap-px border border-line bg-line sm:grid-cols-2 rounded-lg overflow-hidden">
           {channels.map((channel, index) => (
-            <Reveal key={channel.label} delay={index * 70}>
+            <Reveal
+              key={channel.label}
+              delay={index * 70}
+              // com três canais, o comercial ocupa a linha inteira e não sobra buraco na grade
+              className={index === 0 ? "sm:col-span-2" : ""}
+            >
               {/* a célula inteira é o alvo: no celular o link sozinho tinha
                   17px de altura, abaixo do mínimo de toque */}
               <a
@@ -88,8 +87,7 @@ export function ContactChannels() {
           ⚠️ PENDENTE: formulário de contato.
           O site antigo tinha um formulário do Criador de Sites da Locaweb, que não
           migra junto. Quando o escopo for aprovado, ele entra aqui, com envio pelo
-          servidor e roteamento: vendas@ para assuntos comerciais e gerencia@ para
-          reclamações e assuntos institucionais.
+          servidor, entregando em vendas@.
         */}
       </Container>
     </section>

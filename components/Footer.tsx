@@ -78,17 +78,6 @@ export function Footer() {
                 </span>
               </li>
               <li>
-                <a
-                  href={`mailto:${contact.emailGerencia}`}
-                  className="inline-block py-2 transition-colors hover:text-white"
-                >
-                  {contact.emailGerencia}
-                </a>
-                <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55">
-                  Gerência
-                </span>
-              </li>
-              <li>
                 {/* ⚠️ TROCAR AQUI: telefone novo prometido pelo cliente. */}
                 <a
                   href={contact.phoneHref}

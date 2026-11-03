@@ -4,14 +4,15 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 /**
- * Fundo do hero: loop de 12,6 s (escritório → servidores → equipe), sem áudio.
+ * Fundo do hero: loop de 7,3 s (escritório → servidores), sem áudio.
  *
  * A capa é uma imagem com `priority` e é ela que conta como LCP: o vídeo só
  * entra depois da hidratação, então não segura a primeira pintura. Quem pediu
  * menos movimento ou economia de dados fica só com a capa.
  *
- * Vídeos do Pexels (licença gratuita, uso comercial): 7581202, 1085656 e
- * 8865690. Montagem e compressão com ffmpeg — arquivos em /public/hero.
+ * Vídeos do Pexels (licença gratuita, uso comercial): 7581202 e 1085656. O
+ * trecho da equipe (8865690) saiu a pedido do cliente. Montagem e compressão
+ * com ffmpeg — arquivos em /public/hero.
  */
 export function HeroVideo() {
   const [playVideo, setPlayVideo] = useState(false);
