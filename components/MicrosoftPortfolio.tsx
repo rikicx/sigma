@@ -18,7 +18,7 @@ export function MicrosoftPortfolio() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             title={<span id="portfolio-titulo">Licenças Microsoft</span>}
-            description="Do sistema operacional das estações ao banco de dados dos servidores. Cada produto tem uma métrica própria — por dispositivo, por usuário, por núcleo — e é ela que define o custo."
+            description="Do sistema operacional das estações ao banco de dados dos servidores. Cada produto tem uma métrica própria (por dispositivo, por usuário ou por núcleo), e é ela que define o custo."
           />
           <Reveal delay={120} className="shrink-0">
             <Link

@@ -15,7 +15,7 @@ export default function Sobre() {
     <>
       <PageHero
         title="Somos parceiros de decisão, não só fornecedores de licença."
-        description="Mais do que entregar software, ajudamos a decidir o que contratar, em que quantidade e por quê — e continuamos por perto depois da compra."
+        description="Mais do que entregar software, ajudamos a decidir o que contratar, em que quantidade e por quê. E continuamos por perto depois da compra."
         crumbs={[{ label: "Sobre" }]}
       />
       <AboutSection />

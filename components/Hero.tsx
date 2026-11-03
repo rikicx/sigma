@@ -91,7 +91,7 @@ export function Hero() {
               style={{ "--d": "440ms" } as React.CSSProperties}
             >
               Você recebe uma proposta clara, com as alternativas disponíveis, os
-              respectivos custos e nossa recomendação técnica — tudo explicado de
+              respectivos custos e nossa recomendação técnica, tudo explicado de
               forma simples, objetiva e transparente, para que você tome a melhor
               decisão com segurança.
             </p>

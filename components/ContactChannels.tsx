@@ -76,9 +76,9 @@ export function ContactChannels() {
                   Filial {office.city}
                 </span>
                 <address className="mt-3 not-italic text-[15px] leading-relaxed text-ink">
-                  {office.street} — {office.district}
+                  {office.street}, {office.district}
                   <br />
-                  {office.city}/{office.state} — CEP {office.zip}
+                  {office.city}/{office.state}, CEP {office.zip}
                 </address>
               </div>
             ))}

@@ -16,7 +16,7 @@ export default function LicencasMicrosoft() {
     <>
       <PageHero
         title="Licenças Microsoft para empresas, na medida da operação."
-        description="Windows Pro, Office, Windows Server, CALs de acesso, SQL Server, Visual Studio, Visio e Project. Antes de mandar o orçamento, entendemos quantos usuários, quantos dispositivos e quais servidores existem — é isso que define a licença correta e o custo real."
+        description="Windows Pro, Office, Windows Server, CALs de acesso, SQL Server, Visual Studio, Visio e Project. Antes de mandar o orçamento, entendemos quantos usuários, quantos dispositivos e quais servidores existem. É isso que define a licença correta e o custo real."
         crumbs={[{ label: "Licenças Microsoft" }]}
       />
       <ProductsSection />

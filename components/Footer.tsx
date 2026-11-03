@@ -90,7 +90,7 @@ export function Footer() {
                 <li key={office.city} className="leading-relaxed">
                   {office.street}
                   <br />
-                  {office.district} — {office.city}/{office.state}
+                  {office.district}, {office.city}/{office.state}
                   <br />
                   CEP {office.zip}
                 </li>

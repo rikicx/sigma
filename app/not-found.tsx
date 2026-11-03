@@ -15,7 +15,7 @@ export default function NotFound() {
       <Container className="relative">
         <span className="eyebrow text-accent">Erro 404</span>
         <h1 className="display-lg mt-5 max-w-2xl text-balance text-ink">
-          Essa página não existe mais — ou nunca existiu.
+          Essa página não existe mais, ou nunca existiu.
         </h1>
         <p className="mt-6 max-w-xl text-[15.5px] leading-relaxed text-graphite">
           O endereço pode ter mudado. Escolha por onde continuar:

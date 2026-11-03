@@ -5,7 +5,7 @@
 
 export const site = {
   name: "Sigma Brasil",
-  legalName: "Sigma Brasil — Licenciamento Microsoft, Antivírus e Consultoria",
+  legalName: "Sigma Brasil | Licenciamento Microsoft, Antivírus e Consultoria",
   /** Domínio registrado pelo cliente em 17/09/2026, com e-mail Titan já ativo. */
   url: "https://sigmabrasil.com",
   description:
@@ -115,7 +115,7 @@ export const products: readonly Product[] = [
     id: "office",
     title: "Office",
     family: "Produtividade",
-    text: "Word, Excel, PowerPoint e, conforme a edição, Outlook — instalados no computador e licenciados por dispositivo.",
+    text: "Word, Excel, PowerPoint e, conforme a edição, Outlook, instalados no computador e licenciados por dispositivo.",
     points: ["Licença por dispositivo", "Instalado no desktop"],
     icon: "office",
     image: "/produtos/office.jpg",
@@ -307,7 +307,7 @@ export const differentials = [
   },
   {
     title: "Foco em economia e adequação",
-    text: "A recomendação certa é a que cobre a necessidade real — sem excesso contratado por precaução.",
+    text: "A recomendação certa é a que cobre a necessidade real, sem excesso contratado por precaução.",
   },
   {
     title: "Parceria de longo prazo",

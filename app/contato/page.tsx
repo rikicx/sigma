@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const contactPageLd = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "Contato — Sigma Brasil",
+  name: "Contato | Sigma Brasil",
   url: `${site.url}/contato`,
   mainEntity: {
     "@type": "Organization",

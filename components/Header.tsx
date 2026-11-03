@@ -81,7 +81,7 @@ export function Header() {
           <Link
             href={routes.home}
             onClick={close}
-            aria-label="Sigma Brasil — início"
+            aria-label="Sigma Brasil, página inicial"
             className="-my-2 inline-flex py-2"
           >
             <Logo
@@ -201,7 +201,7 @@ export function Header() {
         />
 
         <Container className="relative flex h-full flex-col justify-between pt-28 pb-10">
-          <nav aria-label="Principal — mobile">
+          <nav aria-label="Menu principal">
             <ul>
               {nav.map((item, index) => (
                 <li

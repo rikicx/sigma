@@ -61,7 +61,7 @@ export function MethodSection() {
               Um método claro para decisões melhores em tecnologia.
             </span>
           }
-          description="Cada etapa existe para remover uma incerteza específica — do mapeamento do ambiente à continuidade do suporte depois da contratação."
+          description="Cada etapa existe para remover uma incerteza específica, do mapeamento do ambiente à continuidade do suporte depois da contratação."
         />
 
         <div ref={trackRef} className="relative mt-20">
@@ -111,7 +111,7 @@ export function MethodSection() {
                           active ? "text-accent-bright" : "text-white/55"
                         }`}
                       >
-                        {item.step} — {item.meta}
+                        {item.step} · {item.meta}
                       </span>
                       <h3 className="mt-3 text-[20px] font-medium tracking-[-0.022em] text-white">
                         {item.title}

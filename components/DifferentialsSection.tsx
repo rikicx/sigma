@@ -19,7 +19,7 @@ export function DifferentialsSection() {
               Tecnologia com precisão técnica e atendimento humano.
             </span>
           }
-          description="Decisão de licenciamento é decisão de negócio. Nosso papel é dar clareza suficiente para que ela seja tomada com segurança — e continuar por perto depois dela."
+          description="Decisão de licenciamento é decisão de negócio. Nosso papel é dar clareza suficiente para que ela seja tomada com segurança, e continuar por perto depois dela."
         />
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">

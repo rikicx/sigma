@@ -12,7 +12,7 @@ const highlights = [
   {
     icon: "gauge" as const,
     title: "Dimensionamento antes da compra",
-    text: "Quantos usuários, quantos dispositivos, quais servidores — a conta é feita antes do orçamento.",
+    text: "Quantos usuários, quantos dispositivos, quais servidores: a conta é feita antes do orçamento.",
   },
   {
     icon: "brackets" as const,
@@ -57,7 +57,7 @@ export function ConsultiveStrip() {
               <p className="mt-6 max-w-lg text-pretty text-[15.5px] leading-relaxed text-graphite">
                 A Sigma Brasil vende licenças de software e antivírus para
                 empresas com uma diferença: a consultoria vem junto. Comprar
-                sem orientação custa caro de dois jeitos — pagando pelo que
+                sem orientação custa caro de dois jeitos: pagando pelo que
                 ninguém usa ou descobrindo tarde que faltou licença. Nosso
                 trabalho é eliminar os dois cenários antes de você assinar.
               </p>

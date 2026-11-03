@@ -22,7 +22,7 @@ const cities = [
   {
     name: "Rio de Janeiro",
     landmark: "Cristo Redentor",
-    detail: `${contact.offices[0].street} — ${contact.offices[0].district}`,
+    detail: `${contact.offices[0].street}, ${contact.offices[0].district}`,
     src: "/cidades/rio-cristo-redentor.jpg",
     alt: "Cristo Redentor no alto do Corcovado, com a cidade do Rio de Janeiro e o mar ao fundo",
     width: 800,
@@ -34,7 +34,7 @@ const cities = [
     name: "São Paulo",
     landmark: "Ponte Estaiada",
     // ⚠️ PENDENTE: telefone de São Paulo não foi informado.
-    detail: `${contact.offices[1].street} — ${contact.offices[1].district}`,
+    detail: `${contact.offices[1].street}, ${contact.offices[1].district}`,
     src: "/cidades/sao-paulo-ponte-estaiada.jpg",
     alt: "Ponte Octávio Frias de Oliveira sobre a Marginal Pinheiros, com os edifícios da Berrini ao fundo, em São Paulo",
     width: 900,
