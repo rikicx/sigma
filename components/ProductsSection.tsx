@@ -11,7 +11,7 @@ export function ProductsSection() {
       <Container>
         <SectionHeading
           title={<span id="produtos-titulo">O que licenciamos</span>}
-          description="Cada licença tem uma métrica própria: por dispositivo, por usuário ou por núcleo. É isso que define o custo e o que pode dar errado numa auditoria."
+          description="Cada licença tem uma métrica própria: por dispositivo, por usuário ou por núcleo. Entender esses critérios é essencial para escolher a solução adequada e dimensionar corretamente o investimento da sua empresa."
         />
 
         <ul className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">

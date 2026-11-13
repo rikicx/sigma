@@ -9,7 +9,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 export const metadata: Metadata = {
   title: "Consultoria em licenciamento de software",
   description:
-    "Consultoria em licenciamento: diagnóstico do ambiente, dimensionamento por uso real, recomendação, apoio na implementação e acompanhamento das renovações.",
+    "Consultoria em licenciamento: diagnóstico do ambiente, dimensionamento por uso real, recomendação, apoio na implementação e acompanhamento contínuo.",
   alternates: { canonical: "/consultoria" },
 };
 
@@ -18,7 +18,7 @@ export default function Consultoria() {
     <>
       <PageHero
         title="A parte que transforma uma compra de software em uma decisão consciente."
-        description="Licenciamento tem métrica, regra e prazo. Nosso papel é garantir que você compre o que usa, entenda o que assinou e não seja surpreendido na renovação nem na auditoria."
+        description="Licenciamento tem métrica, regra e prazo. Nosso papel é garantir que você compre as licenças adequadas, tenha clareza sobre o investimento e segurança na gestão do seu licenciamento."
         crumbs={[{ label: "Consultoria" }]}
       />
       <ProblemSection />

@@ -89,7 +89,6 @@ export type Product = {
   /** categoria curta, mostrada sobre a peça visual do card */
   family: string;
   text: string;
-  points: readonly string[];
   icon: "windows" | "office" | "server" | "key" | "database" | "code" | "diagram" | "gantt";
   /** foto conceitual do topo do card (Unsplash, licença gratuita), em /public/produtos */
   image: string;
@@ -106,7 +105,6 @@ export const products: readonly Product[] = [
     title: "Windows Pro",
     family: "Sistema operacional",
     text: "A edição profissional do Windows para os computadores da empresa: ingresso em domínio, criptografia BitLocker e políticas de grupo, recursos que a edição doméstica não tem.",
-    points: ["Estações de trabalho", "Gestão em domínio", "BitLocker"],
     icon: "windows",
     image: "/produtos/windows-pro.jpg",
     imageAlt: "Notebook aberto sobre uma mesa de trabalho",
@@ -116,7 +114,6 @@ export const products: readonly Product[] = [
     title: "Office",
     family: "Produtividade",
     text: "Word, Excel, PowerPoint e, conforme a edição, Outlook, instalados no computador e licenciados por dispositivo.",
-    points: ["Licença por dispositivo", "Instalado no desktop"],
     icon: "office",
     image: "/produtos/office.jpg",
     imageAlt: "Mãos digitando em um notebook com uma planilha aberta",
@@ -126,7 +123,6 @@ export const products: readonly Product[] = [
     title: "Windows Server",
     family: "Servidores",
     text: "Sistema operacional dos servidores da empresa, licenciado por núcleo. A edição Datacenter atende ambientes com muitas máquinas virtuais no mesmo servidor.",
-    points: ["Licença por núcleo", "Edição Datacenter", "Virtualização"],
     icon: "server",
     image: "/produtos/windows-server.jpg",
     imageAlt: "Corredor de uma sala de servidores com racks dos dois lados",
@@ -136,7 +132,6 @@ export const products: readonly Product[] = [
     title: "CALs de acesso",
     family: "Acesso ao servidor",
     text: "Licenças de acesso de cliente que cada usuário ou dispositivo precisa para se conectar ao servidor. Escolher entre CAL de usuário e de dispositivo muda o custo.",
-    points: ["CAL de usuário", "CAL de dispositivo"],
     icon: "key",
     image: "/produtos/cals.jpg",
     imageAlt: "Equipe trabalhando em computadores em um escritório",
@@ -146,7 +141,6 @@ export const products: readonly Product[] = [
     title: "SQL Server",
     family: "Banco de dados",
     text: "Banco de dados dos sistemas da empresa, licenciado por núcleo ou no modelo servidor + CAL. A escolha do modelo é o que mais pesa no orçamento.",
-    points: ["Por núcleo", "Servidor + CAL"],
     icon: "database",
     image: "/produtos/sql-server.jpg",
     imageAlt: "Cabos de rede conectados a um servidor",
@@ -156,7 +150,6 @@ export const products: readonly Product[] = [
     title: "Visual Studio",
     family: "Desenvolvimento",
     text: "Ambiente de desenvolvimento para as equipes que criam e mantêm os sistemas da empresa, licenciado por desenvolvedor.",
-    points: ["Por desenvolvedor", "Equipes de software"],
     icon: "code",
     image: "/produtos/visual-studio.jpg",
     imageAlt: "Tela de computador com código-fonte",
@@ -166,7 +159,6 @@ export const products: readonly Product[] = [
     title: "Visio",
     family: "Diagramas",
     text: "Fluxogramas, organogramas e diagramas de processos e de rede, licenciado para quem desenha.",
-    points: ["Processos e fluxos", "Diagramas de rede"],
     icon: "diagram",
     image: "/produtos/visio.jpg",
     imageAlt: "Duas pessoas desenhando um diagrama em um quadro branco",
@@ -176,7 +168,6 @@ export const products: readonly Product[] = [
     title: "Project",
     family: "Gestão de projetos",
     text: "Planejamento de cronogramas, recursos e prazos para quem coordena projetos na empresa.",
-    points: ["Cronogramas", "Recursos e prazos"],
     icon: "gantt",
     image: "/produtos/project.jpg",
     imageAlt: "Notas adesivas organizadas em um quadro de planejamento",
@@ -236,6 +227,10 @@ export const antivirusTopics = [
 /* Consultoria                                                         */
 /* ------------------------------------------------------------------ */
 
+/**
+ * "Falta de previsibilidade", "Riscos de compliance" e "Mudanças constantes da
+ * Microsoft" saíram a pedido do cliente em 12/11/2026.
+ */
 export const problems = [
   {
     title: "Contratos difíceis de entender",
@@ -248,18 +243,6 @@ export const problems = [
   {
     title: "Gastos desnecessários",
     text: "Licenças duplicadas, recursos pagos e nunca usados, upgrades feitos por insegurança e não por necessidade.",
-  },
-  {
-    title: "Falta de previsibilidade",
-    text: "Renovações que chegam sem aviso e orçamentos de tecnologia que mudam de patamar sem explicação clara.",
-  },
-  {
-    title: "Riscos de compliance",
-    text: "Ambientes com licenciamento incorreto ou mal documentado, expostos a questionamentos em auditoria.",
-  },
-  {
-    title: "Mudanças constantes da Microsoft",
-    text: "Políticas de licenciamento revisadas periodicamente, exigindo acompanhamento contínuo para não perder o passo.",
   },
 ] as const;
 
@@ -307,11 +290,11 @@ export const differentials = [
   },
   {
     title: "Foco em economia e adequação",
-    text: "A recomendação certa é a que cobre a necessidade real, sem excesso contratado por precaução.",
+    text: "A recomendação certa é a que cobre a necessidade real.",
   },
   {
     title: "Parceria de longo prazo",
-    text: "Acompanhamos renovações, mudanças de política e crescimento do ambiente ao longo do tempo.",
+    text: "Acompanhamos mudanças de política e crescimento do ambiente ao longo do tempo.",
   },
   {
     title: "Conhecimento em soluções Microsoft",

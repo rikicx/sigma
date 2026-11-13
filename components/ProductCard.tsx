@@ -77,22 +77,12 @@ export function ProductCard({
           {product.title}
         </h3>
 
+        {/* as etiquetas abaixo do texto (ex.: "Licença por dispositivo")
+            saíram a pedido do cliente em 12/11/2026 */}
         {compact ? null : (
-          <>
-            <p className="mt-3 text-[14.5px] leading-relaxed text-graphite">
-              {product.text}
-            </p>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {product.points.map((point) => (
-                <li
-                  key={point}
-                  className="rounded-md bg-mist px-2.5 py-1 text-[12px] font-medium text-accent"
-                >
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </>
+          <p className="mt-3 text-[14.5px] leading-relaxed text-graphite">
+            {product.text}
+          </p>
         )}
 
         <div className={`mt-auto ${compact ? "pt-5" : "pt-7"}`}>

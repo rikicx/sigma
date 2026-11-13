@@ -27,7 +27,7 @@ const highlights = [
   {
     icon: "support" as const,
     title: "Acompanhamento depois",
-    text: "Renovação, mudança de política e crescimento do ambiente seguem acompanhados.",
+    text: "Mudança de política e crescimento do ambiente seguem acompanhados.",
   },
 ];
 

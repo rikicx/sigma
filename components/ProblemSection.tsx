@@ -28,12 +28,13 @@ export function ProblemSection() {
           </Reveal>
         </div>
 
-        {/* lista com fio, não grade de seis caixas idênticas: são sintomas de
-            um mesmo problema, não seis produtos */}
-        <dl className="mt-14 grid gap-x-16 border-t border-line sm:grid-cols-2">
+        {/* lista com fio, não grade de caixas idênticas: são sintomas de um
+            mesmo problema, não produtos. Três itens: uma linha só no desktop,
+            empilhados abaixo disso (em duas colunas sobraria um sozinho). */}
+        <dl className="mt-14 grid gap-x-12 border-t border-line lg:grid-cols-3">
           {problems.map((problem, index) => (
-            <Reveal key={problem.title} delay={(index % 2) * 60}>
-              <div className="group border-b border-line py-7">
+            <Reveal key={problem.title} delay={(index % 3) * 60} className="h-full">
+              <div className="group h-full border-b border-line py-7">
                 <dt className="flex items-baseline gap-3 text-[18px] font-medium leading-snug tracking-[-0.022em] text-ink">
                   <span
                     aria-hidden="true"

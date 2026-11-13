@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { Container } from "./ui/Container";
 import { Reveal } from "./ui/Reveal";
 import { SectionHeading } from "./ui/SectionHeading";
 import { CheckMark, CrossMark, ArrowRight } from "./ui/icons";
-import { comparison } from "@/lib/site";
+import { comparison, routes } from "@/lib/site";
 
 export function ComparisonSection() {
   return (
@@ -19,7 +20,7 @@ export function ComparisonSection() {
               A mesma compra, com dois resultados diferentes.
             </span>
           }
-          description="A diferença entre contratar software e estruturar uma decisão de tecnologia aparece no custo, no risco e na tranquilidade da renovação seguinte."
+          description="A diferença entre contratar software e estruturar uma decisão de tecnologia aparece no custo, no risco e na tranquilidade das próximas decisões."
         />
 
         <div className="mt-16 grid gap-6 lg:grid-cols-2 lg:gap-8">
@@ -73,13 +74,15 @@ export function ComparisonSection() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#contato"
+                {/* apontava para #contato, âncora que não existe nesta página:
+                    o clique não fazia nada (corrigido em 12/11/2026) */}
+                <Link
+                  href={routes.contato}
                   className="group mt-10 inline-flex items-center gap-2 border-t border-white/10 pt-6 text-[13px] font-medium text-white"
                 >
                   Começar pelo diagnóstico
                   <ArrowRight className="h-3.5 w-3.5 text-accent-bright transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
+                </Link>
               </div>
             </article>
           </Reveal>
